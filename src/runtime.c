@@ -2914,42 +2914,53 @@ static ExecResult execute_stmt_list(Node *stmt, RuntimeState *state, Env *env) {
 }
 
 int runtime_execute(Node *program, const RuntimeConfig *config) {
-    RuntimeState state;
-    Env global_env;
+    /* Heap-allocate large structs to avoid overflowing the small WASM stack.
+     * RuntimeState (~tens of KB) + Env (~30 KB) together exceed the 64 KB
+     * default Emscripten stack size and cause "memory access out of bounds". */
+    RuntimeState *state = (RuntimeState *)calloc(1, sizeof(RuntimeState));
+    Env *global_env = (Env *)calloc(1, sizeof(Env));
     ExecResult result;
     int exit_code;
 
-    memset(&state, 0, sizeof(state));
-    memset(&global_env, 0, sizeof(global_env));
-
-    if (config) {
-        state.config = *config;
+    if (!state || !global_env) {
+        fprintf(stderr, "[lovelang] OOM\n");
+        free(state);
+        free(global_env);
+        return 1;
     }
 
-    if (!state.config.mode[0]) {
-        strncpy(state.config.mode, "romantic", sizeof(state.config.mode) - 1);
+    if (config) {
+        state->config = *config;
+    }
+
+    if (!state->config.mode[0]) {
+        strncpy(state->config.mode, "romantic", sizeof(state->config.mode) - 1);
     }
 
     /* Wire GC: expose state pointer globally and set env root for tracing */
-    g_runtime_state = &state;
-    state.root_env   = &global_env;
+    g_runtime_state = state;
+    state->root_env  = global_env;
 
     if (!program || program->type != NODE_BLOCK) {
         fprintf(stderr, "[lovelang] runtime error: invalid program root\n");
         g_runtime_state = NULL;
+        free(state);
+        free(global_env);
         return 1;
     }
 
-    result = execute_stmt_list(program->body, &state, &global_env);
+    result = execute_stmt_list(program->body, state, global_env);
 
     if (result.has_return) {
         value_free(&result.return_value);
-        runtime_error(&state, program->line, "top-level ehsaas return allowed nahi hai");
-        env_clear(&global_env);
+        runtime_error(state, program->line, "top-level ehsaas return allowed nahi hai");
+        env_clear(global_env);
         /* Final GC sweep before exit */
-        gc_collect(&state);
-        free(state.gc.objects);
+        gc_collect(state);
+        free(state->gc.objects);
         g_runtime_state = NULL;
+        free(state);
+        free(global_env);
         return 1;
     }
 
@@ -2961,24 +2972,28 @@ int runtime_execute(Node *program, const RuntimeConfig *config) {
         fprintf(stderr, "  Use koshish { } dil_jodo (galti) { } to handle it.\n\n");
         free(msg);
         value_free(&result.throw_value);
-        env_clear(&global_env);
-        gc_collect(&state);
-        free(state.gc.objects);
+        env_clear(global_env);
+        gc_collect(state);
+        free(state->gc.objects);
         g_runtime_state = NULL;
+        free(state);
+        free(global_env);
         return 1;
     }
 
-    env_clear(&global_env);
+    env_clear(global_env);
 
     /* Final GC pass to free any cycle-orphaned objects */
-    gc_collect(&state);
-    if (state.gc.count > 0 && config && config->debug_love) {
+    gc_collect(state);
+    if (state->gc.count > 0 && config && config->debug_love) {
         fprintf(stderr, "[lovelang] GC: %zu objects still alive at exit\n",
-                state.gc.count);
+                state->gc.count);
     }
-    free(state.gc.objects);
+    free(state->gc.objects);
     g_runtime_state = NULL;
 
     exit_code = result.error ? 1 : 0;
+    free(state);
+    free(global_env);
     return exit_code;
 }

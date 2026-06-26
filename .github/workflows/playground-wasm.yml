@@ -43,6 +43,7 @@ env:
     -s FORCE_FILESYSTEM=1
     -s NO_EXIT_RUNTIME=1
     -s ALLOW_MEMORY_GROWTH=1
+    -s TOTAL_STACK=2097152
     -s EXPORTED_FUNCTIONS='["_main"]'
     -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap","FS","callMain"]'
 
