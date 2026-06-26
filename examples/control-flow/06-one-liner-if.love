@@ -1,0 +1,30 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 06 — One-liner Conditionals
+baby ignore karo  sun na agar ... toh ... warna ...
+baby ignore karo  For quick checks without multi-line blocks.
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad x hai 42
+yaad name hai "Laila"
+yaad online hai sach
+
+~~ Basic one-liner
+sun na agar x bada hai 0 toh bolo "positive" warna bolo "zero ya negative"
+
+~~ With string comparison
+sun na agar name barabar hai "Laila" toh baby bolo naa "Laila aagayi 💌" warna bolo "koi aur hai"
+
+~~ With boolean
+sun na agar online toh bolo "online ✅" warna bolo "offline 📴"
+
+~~ Chained — note: one-liner is always a single if/else
+yaad val hai 7
+sun na agar val barabar hai 7 toh bolo "lucky number! 🍀" warna bolo "try again"
+
+~~ Use it inside output
+yaad a hai 10
+yaad b hai 20
+bolo "the bigger one is:"
+sun na agar a bada hai b toh bolo a warna bolo b
+
+love you baby byeee

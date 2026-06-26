@@ -1,0 +1,58 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 05 — Conditionals
+baby ignore karo  agar / warna / warna agar / bas itna hi
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad score hai 87
+
+~~ Natural style — preferred in Lovelang
+agar score bada ya barabar hai 90 toh
+  baby bolo na "A grade — bohot acha kiya 🏆"
+warna agar score bada ya barabar hai 75 toh
+  bolo "B grade — thoda aur mehnat karo"
+warna agar score bada ya barabar hai 50 toh
+  baby bolo naa "C grade — pass ho gaye, yeh bhi kuch kam nahi"
+warna
+  bolo "fail — ek baar aur try karo, tum kar sakte ho 💪"
+bas itna hi
+
+~~ Equality checks using word operators
+yaad mood hai "shayari"
+
+agar mood barabar hai "shayari" toh
+  bolo "aaj lafzon mein baarish hai 🌧️"
+warna agar mood barabar hai "toxic" toh
+  bolo "tum woh nahi jo main chahta tha"
+warna
+  bolo "romantic mode on 🌹"
+bas itna hi
+
+~~ Inequality check
+yaad reply hai null
+
+agar reply barabar nahi null toh
+  bolo "reply aaya!"
+warna
+  bolo "left on read... again 😔"
+bas itna hi
+
+~~ Boolean check
+yaad online hai sach
+
+agar online toh
+  baby bolo naa "woh online hai — dil dhadak raha hai 💓"
+warna
+  bolo "offline hai... wait karo"
+bas itna hi
+
+~~ Compound conditions with aur / ya
+yaad age hai 22
+yaad has_job hai sach
+
+agar age bada hai 18 aur has_job toh
+  bolo "eligible ✅"
+warna
+  bolo "not yet..."
+bas itna hi
+
+love you baby byeee

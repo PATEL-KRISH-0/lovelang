@@ -1,0 +1,57 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 09 — Functions (dhadkan / ehsaas)
+baby ignore karo  dhadkan = heartbeat = function declaration
+baby ignore karo  ehsaas  = feeling  = return value
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Simple greeting function
+dhadkan greet(name) {
+  bolo "aaye ho tum — " milan name milan " 💌"
+  ehsaas sach
+}
+
+greet("Laila")
+greet("Majnu")
+
+~~ Function that returns a value
+dhadkan double(n) {
+  ehsaas n intense 2
+}
+
+yaad result hai double(21)
+bolo "double of 21:"
+bolo result
+
+~~ Function calling another function
+dhadkan square(n) {
+  ehsaas n intense n
+}
+
+dhadkan cube(n) {
+  ehsaas n intense square(n)
+}
+
+bolo "3 squared:"
+bolo square(3)
+bolo "3 cubed:"
+bolo cube(3)
+
+~~ Function with multiple params
+dhadkan describe(name, age, city) {
+  baby bolo naa name milan " is " milan to_text(age) milan " years old from " milan city
+  ehsaas null
+}
+
+describe("Ranjha", 24, "Jhang")
+describe("Heer", 22, "Sial")
+
+~~ Storing function result in variable
+dhadkan add(a, b) {
+  ehsaas a milan b
+}
+
+yaad sum hai add(15, 27)
+bolo "15 milan 27 ="
+bolo sum
+
+love you baby byeee

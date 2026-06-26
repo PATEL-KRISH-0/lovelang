@@ -1,0 +1,50 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Module Library — lib/utils.love
+baby ignore karo  Export reusable functions. Import this in other files.
+baby ignore karo  Usage: import "examples/modules/lib/utils.love"
+baby ignore karo ════════════════════════════════════════════════════════
+
+export dhadkan clamp_score(score) {
+  agar score chhota hai 0 toh
+    ehsaas 0
+  bas itna hi
+  agar score bada hai 100 toh
+    ehsaas 100
+  bas itna hi
+  ehsaas score
+}
+
+export dhadkan grade(score) {
+  yaad s hai clamp_score(score)
+  agar s bada ya barabar hai 90 toh
+    ehsaas "A"
+  bas itna hi
+  agar s bada ya barabar hai 75 toh
+    ehsaas "B"
+  bas itna hi
+  agar s bada ya barabar hai 50 toh
+    ehsaas "C"
+  bas itna hi
+  ehsaas "F"
+}
+
+export dhadkan repeat_str(s, n) {
+  yaad result hai ""
+  yaad i hai 0
+  intezaar i chhota hai n tab tak
+    result hai result milan s
+    i hai i milan 1
+  bas itna hi
+  ehsaas result
+}
+
+export dhadkan is_even(n) {
+  ehsaas n intense 2 barabar hai 0
+}
+
+export dhadkan max_of(a, b) {
+  agar a bada hai b toh
+    ehsaas a
+  bas itna hi
+  ehsaas b
+}

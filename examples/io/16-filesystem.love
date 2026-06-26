@@ -1,0 +1,41 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 16 — Filesystem
+baby ignore karo  Read, write, append — ishq likhdo, dil khol ke padho
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad path hai "examples/io/love-letter.txt"
+
+~~ Write a file — ishq_likhdo = "write with love"
+ishq_likhdo(path, "pyaar mein likhte hain hum\n")
+bolo "letter written 📝"
+
+~~ Append more lines — ishq_joddo = "add to the love"
+ishq_joddo(path, "har roz ek naya khatt\n")
+ishq_joddo(path, "jo kabhi bheja nahi\n")
+ishq_joddo(path, "par dil mein rehta hai hamesha\n")
+
+~~ Check existence — raasta_hai_kya = "is this path real?"
+agar raasta_hai_kya(path) toh
+  baby bolo naa "file exists ✅"
+warna
+  bolo "file nahi mili 😔"
+bas itna hi
+
+~~ Read full contents — dil_khol_ke_padho = "read with open heart"
+yaad contents hai dil_khol_ke_padho(path)
+bolo "file contents:"
+bolo contents
+
+~~ file_likho / file_padho / file_jodo — shorter aliases
+file_likho(path, "naya khatt — ek naya din\n")
+file_jodo(path, "phir bhi wahi dil\n")
+yaad again hai file_padho(path)
+bolo "rewritten:"
+bolo again
+
+~~ file_hai_kya — alias for raasta_hai_kya
+agar file_hai_kya(path) toh
+  bolo "confirmed — file still there 💾"
+bas itna hi
+
+love you baby byeee

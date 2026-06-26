@@ -1,0 +1,43 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 15 — Input, Sleep, Random, Time
+baby ignore karo  dil_se_pucho, thoda_ruko, kismat, abhi_time
+baby ignore karo  Note: requires terminal interaction for input lines
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Random number — kismat = fate
+yaad lucky hai kismat(1, 100)
+bolo "today's lucky number (kismat):"
+bolo lucky
+
+~~ Time — unix timestamp
+yaad now hai abhi_time()
+bolo "current unix time:"
+bolo now
+
+~~ Sleep — thoda ruko = "wait a little"
+bolo "waiting 200ms..."
+thoda_ruko(200)
+bolo "done waiting 🕰️"
+
+~~ Input — uncomment to use interactively:
+// yaad user_name hai dil_se_pucho("tumhara naam kya hai? ")
+// baby bolo naa "ah, " milan user_name milan " — khoobsurat naam hai 💌"
+
+// yaad guess hai to_int(dil_se_pucho("1 se 10 ke beech ek number chuno: "))
+// agar guess barabar hai lucky toh
+//   bolo "wah! pehle try mein hi? kismat waale ho 🍀"
+// warna
+//   bolo "lucky number tha " milan to_text(lucky) milan " — agli baar"
+// bas itna hi
+
+~~ pucho phrase (short alias for dil_se_pucho)
+// yaad q hai pucho("kya chal raha hai? ")
+// bolo q
+
+~~ input() is also an alias
+// yaad inp hai input("> ")
+// bolo inp
+
+bolo "random and time demo complete ✅"
+
+love you baby byeee

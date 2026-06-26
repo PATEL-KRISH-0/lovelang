@@ -1,0 +1,13 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 23 — Error: Pop from Empty List
+baby ignore karo  Expected: runtime error when popping empty list
+baby ignore karo  This file SHOULD fail — used in error testing
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad empty hai list_nayi()
+
+bolo "about to pop from empty list..."
+yaad item hai list_nikaal(empty)
+bolo "this line should never print"
+
+love you baby byeee

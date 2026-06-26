@@ -1,0 +1,107 @@
+name: publish-npm
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to publish (example: v1.1.0)"
+        required: true
+        type: string
+      publish:
+        description: "Publish to npm (false = dry run only)"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: publish-npm-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.tag }}
+  PACKAGE_DIR: npm/lovelang-cli
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # id-token at job level is required for --provenance to work
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Install package dependencies (skip postinstall)
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: npm install --ignore-scripts
+
+      - name: Run package tests
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: npm test
+
+      - name: Verify package version matches tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION=$(node -p "require('./${PACKAGE_DIR}/package.json').version")
+          echo "Package version: v${VERSION}"
+          echo "Release tag:     ${RELEASE_TAG}"
+          if [ "v${VERSION}" != "${RELEASE_TAG}" ]; then
+            echo "❌  Tag ${RELEASE_TAG} does not match package version v${VERSION}"
+            echo "    Update npm/lovelang-cli/package.json before releasing."
+            exit 1
+          fi
+          echo "✅  Version matches."
+
+      - name: Dry run — preview what will be published
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish != 'true' }}
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: |
+          echo "=== DRY RUN — nothing will be published ==="
+          npm pack --dry-run
+
+      - name: Publish to npm
+        if: ${{ github.event_name == 'push' || github.event.inputs.publish == 'true' }}
+        working-directory: ${{ env.PACKAGE_DIR }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -e
+          if [ -z "${NODE_AUTH_TOKEN:-}" ]; then
+            echo "❌  NPM_TOKEN secret is not set. Add it in repo Settings → Secrets."
+            exit 1
+          fi
+          
+          # Set up git user
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # Attempt publish
+          echo "Running npm publish..." > publish_error.txt
+          echo "Checking npm whoami..." >> publish_error.txt
+          npm whoami >> publish_error.txt 2>&1 || true
+          
+          if npm publish --access public --provenance >> publish_error.txt 2>&1; then
+            echo "✅  Published with provenance."
+          else
+            echo "⚠️   Provenance publish failed — retrying without provenance." >> publish_error.txt 2>&1
+            if npm publish --access public >> publish_error.txt 2>&1; then
+              echo "✅  Published."
+            else
+              echo "❌  Publish failed." >> publish_error.txt 2>&1
+              cat publish_error.txt
+              exit 1
+            fi
+          fi

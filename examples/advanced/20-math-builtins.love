@@ -1,0 +1,43 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 20 — Math Builtins
+baby ignore karo  abs, max_val, min_val, pow_val, sqrt_val, clamp_val
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Absolute value
+bolo "abs(-42):"
+bolo abs(-42)
+bolo "abs(17):"
+bolo abs(17)
+
+~~ Max and min
+bolo "max_val(13, 99):"
+bolo max_val(13, 99)
+bolo "min_val(13, 99):"
+bolo min_val(13, 99)
+
+~~ Power
+bolo "pow_val(2, 10):"
+bolo pow_val(2, 10)
+
+~~ Square root (float output)
+bolo "sqrt_val(144):"
+bolo sqrt_val(144)
+bolo "sqrt_val(2):"
+bolo sqrt_val(2)
+
+~~ Clamp — keep value within a range
+yaad raw_score hai 110
+yaad safe_score hai clamp_val(raw_score, 0, 100)
+bolo "clamped 110 to [0,100]:"
+bolo safe_score
+
+yaad below hai clamp_val(-5, 0, 100)
+bolo "clamped -5 to [0,100]:"
+bolo below
+
+~~ Combine them
+yaad n hai -36
+bolo "sqrt of abs(-36):"
+bolo sqrt_val(abs(n))
+
+love you baby byeee

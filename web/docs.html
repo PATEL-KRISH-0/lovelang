@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs — Lovelang</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <div class="logo-heart"><i class="ri-heart-fill"></i></div>
+            Lovelang
+        </a>
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="ri-menu-line"></i>
+        </button>
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="#" style="color:var(--text)">Docs</a>
+            <a href="playground.html">Playground</a>
+            <a href="https://github.com/PATEL-KRISH-0/lovelang">GitHub</a>
+            <span class="docs-version">v1.0.0</span>
+            <a href="https://github.com/PATEL-KRISH-0/lovelang" class="nav-btn"><i class="ri-github-fill"></i> Star</a>
+        </div>
+    </nav>
+
+    <div class="docs-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="docs-search">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Search docs..." />
+            </div>
+
+            <div class="sb-section">
+                <div class="sb-label"><i class="ri-home-4-line"></i> Getting Started</div>
+                <a href="#intro" class="sb-link active"><i class="ri-book-open-line"></i> Introduction</a>
+                <a href="#install" class="sb-link"><i class="ri-download-cloud-line"></i> Installation</a>
+                <a href="#build" class="sb-link"><i class="ri-hammer-line"></i> Building from Source</a>
+                <a href="#hello" class="sb-link"><i class="ri-hearts-line"></i> First Program</a>
+            </div>
+
+            <div class="sb-divider"></div>
+
+            <div class="sb-section">
+                <div class="sb-label"><i class="ri-code-line"></i> Language Reference</div>
+                <a href="#syntax" class="sb-link"><i class="ri-file-code-line"></i> Syntax Overview</a>
+                <a href="#variables" class="sb-link"><i class="ri-database-2-line"></i> Variables</a>
+                <a href="#types" class="sb-link"><i class="ri-shapes-line"></i> Types</a>
+                <a href="#modules" class="sb-link"><i class="ri-links-line"></i> Modules</a>
+                <a href="#collections" class="sb-link"><i class="ri-list-check-2"></i> Collections</a>
+                <a href="#strings" class="sb-link"><i class="ri-text"></i> String Toolkit</a>
+                <a href="#filesystem" class="sb-link"><i class="ri-folder-open-line"></i> Filesystem</a>
+                <a href="#utilities" class="sb-link"><i class="ri-tools-line"></i> Type Utilities</a>
+                <a href="#operators" class="sb-link"><i class="ri-function-line"></i> Operators</a>
+                <a href="#output" class="sb-link"><i class="ri-terminal-line"></i> Output</a>
+                <a href="#conditionals" class="sb-link"><i class="ri-git-branch-line"></i> Conditionals</a>
+                <a href="#loops" class="sb-link"><i class="ri-repeat-line"></i> Loops</a>
+                <a href="#functions" class="sb-link"><i class="ri-braces-line"></i> Functions</a>
+                <a href="#festival" class="sb-link"><i class="ri-sparkling-line"></i> Festival Blocks</a>
+                <a href="#comments" class="sb-link"><i class="ri-chat-3-line"></i> Comments</a>
+                <a href="#stop" class="sb-link"><i class="ri-stop-circle-line"></i> Stop Behavior</a>
+                <a href="#human-mode" class="sb-link"><i class="ri-heart-3-line"></i> Human-Mode Aliases <span
+                        class="sb-badge">desi</span></a>
+            </div>
+
+            <div class="sb-divider"></div>
+
+            <div class="sb-section">
+                <div class="sb-label"><i class="ri-terminal-box-line"></i> CLI</div>
+                <a href="#cli" class="sb-link"><i class="ri-command-line"></i> CLI Reference</a>
+                <a href="#modes" class="sb-link"><i class="ri-emotion-line"></i> Run Modes</a>
+                <a href="#debug" class="sb-link"><i class="ri-bug-line"></i> Debug Flags</a>
+            </div>
+
+            <div class="sb-divider"></div>
+
+            <div class="sb-section">
+                <div class="sb-label"><i class="ri-puzzle-line"></i> VS Code Extension</div>
+                <a href="#extension" class="sb-link"><i class="ri-palette-line"></i> Overview</a>
+                <a href="#ext-install" class="sb-link"><i class="ri-install-line"></i> Installation</a>
+                <a href="#ext-features" class="sb-link"><i class="ri-star-line"></i> Features</a>
+                <a href="#ext-settings" class="sb-link"><i class="ri-settings-4-line"></i> Settings</a>
+                <a href="#ext-commands" class="sb-link"><i class="ri-play-circle-line"></i> Commands</a>
+            </div>
+
+            <div class="sb-divider"></div>
+
+            <div class="sb-section">
+                <div class="sb-label"><i class="ri-book-2-line"></i> Examples</div>
+                <a href="#examples" class="sb-link"><i class="ri-file-list-line"></i> Example Programs</a>
+                <a href="playground.html" class="sb-link"><i class="ri-flask-line"></i> Playground</a>
+                <a href="#faq" class="sb-link"><i class="ri-question-line"></i> FAQ</a>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="docs-main">
+
+            <!-- Hero banner -->
+            <div class="docs-hero">
+                <h1>Lovelang <span style="color:var(--red)">Documentation</span></h1>
+                <p>A complete reference for the Lovelang interpreted language — syntax, CLI, VS Code extension, and
+                    examples. Written for humans who feel things.</p>
+                <div class="badge-row">
+                    <span class="doc-badge">v1.0.0 stable</span>
+                    <span class="doc-badge green">C11 runtime</span>
+                    <span class="doc-badge blue">VS Code Extension</span>
+                    <span class="doc-badge">Native Compile</span>
+                    <span class="doc-badge">.love files</span>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="doc-section" id="intro">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-book-open-line"></i> Introduction</div>
+                <p class="doc-p">Lovelang is a <strong>C-based interpreted language</strong> built around desi
+                    human-style phrases. It's a passion project born from the idea that programming languages don't have
+                    to be cold and mechanical — they can feel warm, expressive, and personal.</p>
+                <p class="doc-p">The language uses a Hinglish-inspired vocabulary: <code>yaad</code> for mutable
+                    variables, <code>vada</code> for constants, <code>dhadkan</code> for functions, and
+                    <code>bolo</code> to print output. It now includes modules
+                    (<code>import</code>/<code>export</code>), list/map collections, richer string helpers, conversion
+                    utilities, and filesystem built-ins.</p>
+                <p class="doc-p">The execution pipeline is: <strong>file read → preprocess → lex → parse →
+                        execute</strong>. No JVM, no package manager, no runtime dependencies. Just clone,
+                    <code>make</code>, and run.</p>
+
+                <div class="doc-alert success">
+                    <strong>✨ Philosophy:</strong> Mix natural style and core syntax freely. Lovelang is designed so
+                    that both <code>yaad count hai 0</code> and <code>yaad count = 0</code> work. Write what feels
+                    right.
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="doc-section" id="install">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-download-cloud-line"></i> Installation</div>
+                <p class="doc-p">Recommended: install the npm CLI wrapper. It auto-downloads the correct binary for your
+                    OS/CPU and runs immediately.</p>
+
+                <div class="doc-h3">npm (macOS / Linux / Windows)</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">terminal</span><button class="cb-copy"><i
+                                class="ri-file-copy-line"></i> copy</button>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm"># Install globally (auto-downloads correct binary for your OS)</span>
+                        </div>
+                        <div><span class="prompt2">$</span> npm install -g lovelang-cli</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Interpret a .love file</span></div>
+                        <div><span class="prompt2">$</span> lovelang hello.love</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Run in shayari mood</span></div>
+                        <div><span class="prompt2">$</span> lovelang hello.love --mode shayari</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Compile to native binary (no external toolchain needed)</span></div>
+                        <div><span class="prompt2">$</span> lovelang hello.love --native --out ./hello</div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">Windows</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">PowerShell</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm"># Using the PowerShell runner</span></div>
+                        <div><span class="prompt2">PS></span> .\run_love.ps1 examples\hello.love</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Or using the cmd runner</span></div>
+                        <div><span class="prompt2">></span> run_love.cmd examples\hello.love</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Build -->
+            <div class="doc-section" id="build">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-hammer-line"></i> Building from Source</div>
+                <p class="doc-p">The Makefile handles compilation of all source files. Source is in <code>src/</code>,
+                    headers in <code>include/</code>.</p>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">Makefile targets</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="prompt2">$</span> make <span class="cm"># build ./lovelang binary</span></div>
+                        <div><span class="prompt2">$</span> make clean <span class="cm"># clean build artifacts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="doc-p">Project layout:</p>
+                <ul class="doc-ul">
+                    <li class="doc-li"><code>include/love.h</code> — token/AST declarations shared by all modules</li>
+                    <li class="doc-li"><code>src/main.c</code> — CLI entry point and human-phrase preprocessor</li>
+                    <li class="doc-li"><code>src/lexer.c</code> — tokenizer and keyword recognition</li>
+                    <li class="doc-li"><code>src/parser.c</code> — AST builder</li>
+                    <li class="doc-li"><code>src/runtime.c</code> — tree-walk execution engine</li>
+                    <li class="doc-li"><code>examples/</code> — runnable .love programs</li>
+                    <li class="doc-li"><code>extension/</code> — VS Code extension</li>
+                </ul>
+            </div>
+
+            <!-- First Program -->
+            <div class="doc-section" id="hello">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-hearts-line"></i> Your First Program</div>
+                <p class="doc-p">Create a file called <code>hello.love</code> and write:</p>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">hello.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm">// A classic greeting, Lovelang style</span></div>
+                        <div><span class="kw">yaad</span> name <span class="kw">hai</span> <span
+                                class="str">"jaan"</span></div>
+                        <div><span class="kw">vada</span> promise <span class="kw">hai</span> <span
+                                class="str">"forever"</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="fn">baby bolo naa</span> <span class="str">"hello, "</span> <span
+                                class="kw">milan</span> name</div>
+                        <div>&nbsp;</div>
+                        <div><span class="kw">agar</span> name <span class="kw">barabar hai</span> <span
+                                class="str">"jaan"</span> <span class="kw">toh</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"welcome back 💌"</span></div>
+                        <div><span class="kw">warna</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"who are you?"</span></div>
+                        <div><span class="kw">bas itna hi</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="kw">love you baby byeee</span></div>
+                        <div>&nbsp;</div>
+                        <div class="out">» hello, jaan</div>
+                        <div class="out">» welcome back 💌</div>
+                        <div class="out">» ❤️ byeee...</div>
+                    </div>
+                </div>
+
+                <p class="doc-p">Run it:</p>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">terminal</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="prompt2">$</span> ./lovelang hello.love</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Syntax Overview -->
+            <div class="doc-section" id="syntax">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-file-code-line"></i> Syntax Overview</div>
+                <p class="doc-p">Lovelang supports two syntactic styles that can be freely mixed:</p>
+                <ul class="doc-ul">
+                    <li class="doc-li"><strong>Core syntax</strong> — structured, uses curly braces and semicolons
+                        optionally</li>
+                    <li class="doc-li"><strong>Natural/human style</strong> — uses desi phrases, no braces needed, ends
+                        with <code>bas itna hi</code></li>
+                </ul>
+                <p class="doc-p">The preprocessor runs first and normalizes human-mode phrases into core tokens before
+                    the lexer sees them.</p>
+            </div>
+
+            <!-- Variables -->
+            <div class="doc-section" id="variables">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-database-2-line"></i> Variables &amp; Constants</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>yaad</td>
+                        <td>mutable</td>
+                        <td>Declare a mutable variable. Can be reassigned.</td>
+                    </tr>
+                    <tr>
+                        <td>yaad_karo</td>
+                        <td>mutable</td>
+                        <td>Alternate mutable declaration (same behavior as yaad).</td>
+                    </tr>
+                    <tr>
+                        <td>vada</td>
+                        <td>immutable</td>
+                        <td>Declare a constant. Reassigning throws a runtime error.</td>
+                    </tr>
+                </table>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">variables.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm">// Mutable declarations</span></div>
+                        <div><span class="kw">yaad</span> count <span class="kw">hai</span> <span class="num">0</span>
+                        </div>
+                        <div><span class="kw">yaad_karo</span> score <span class="kw">hai</span> <span
+                                class="num">10</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// Immutable constant</span></div>
+                        <div><span class="kw">vada</span> badge <span class="kw">hai</span> <span
+                                class="str">"gold"</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// Human-mode alias for vada</span></div>
+                        <div><span class="fn">baby yaad rakho</span> name <span class="kw">hai</span> <span
+                                class="str">"jaan"</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// Assignment (name must exist)</span></div>
+                        <div>count <span class="kw">hai</span> count <span class="kw">milan</span> <span
+                                class="num">1</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// This would cause a runtime error:</span></div>
+                        <div><span class="cm">// badge hai "silver" → immutable!</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Types -->
+            <div class="doc-section" id="types">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-shapes-line"></i> Value Types</div>
+                <p class="doc-p">Lovelang has six runtime value types:</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Type</th>
+                        <th>Literals</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>int</td>
+                        <td><code>0</code>, <code>42</code>, <code>-7</code></td>
+                        <td>Integer arithmetic</td>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td><code>sach</code>, <code>jhooth</code></td>
+                        <td>true / false in desi</td>
+                    </tr>
+                    <tr>
+                        <td>string</td>
+                        <td><code>"hello"</code></td>
+                        <td>Double-quoted strings</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td>via <code>list_nayi()</code></td>
+                        <td>Ordered dynamic collection</td>
+                    </tr>
+                    <tr>
+                        <td>map</td>
+                        <td>via <code>map_naya()</code></td>
+                        <td>Key/value dictionary (string keys)</td>
+                    </tr>
+                    <tr>
+                        <td>null</td>
+                        <td><code>null</code></td>
+                        <td>Absence of value</td>
+                    </tr>
+                </table>
+
+                <div class="doc-alert info">
+                    <strong>Note:</strong> <code>sach</code> = true, <code>jhooth</code> = false. These are the only
+                    boolean literals in Lovelang.
+                </div>
+            </div>
+
+            <!-- Modules -->
+            <div class="doc-section" id="modules">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-links-line"></i> Modules: import / export</div>
+                <p class="doc-p">Modules are handled in preprocessing. <code>import</code> inlines another file, and
+                    <code>export</code> marks reusable declarations in module files.</p>
+
+                <ul class="doc-ul">
+                    <li class="doc-li"><code>import "path/file.love"</code> resolves relative to the current file</li>
+                    <li class="doc-li">same import is included once per run (deduped)</li>
+                    <li class="doc-li"><code>export</code> is accepted for readability and stripped before parsing</li>
+                </ul>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">modules.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">import</span> <span class="str">"modules/romantic_utils.love"</span></div>
+                        <div><span class="fn">bolo</span> greet(<span class="str">"patel krish"</span>)</div>
+                        <div><span class="fn">bolo</span> greet(<span class="str">"patel krish"</span>, mood = <span
+                                class="str">"shayari"</span>, punct = <span class="str">"..."</span>)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collections -->
+            <div class="doc-section" id="collections">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-list-check-2"></i> Collections (List + Map)</div>
+                <p class="doc-p">Lovelang ships with first-class list and map built-ins.</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Group</th>
+                        <th>Built-ins</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td><code>list_nayi</code>, <code>pyaar_list</code></td>
+                        <td>Create list</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td><code>list_daal</code>, <code>pyaar_daal</code>, <code>list_nikaal</code></td>
+                        <td>Push/pop</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td><code>list_lao</code>, <code>list_set</code></td>
+                        <td>Read/write by index</td>
+                    </tr>
+                    <tr>
+                        <td>map</td>
+                        <td><code>map_naya</code>, <code>raaz_map</code></td>
+                        <td>Create map</td>
+                    </tr>
+                    <tr>
+                        <td>map</td>
+                        <td><code>map_set</code>, <code>map_get</code>, <code>map_has</code>, <code>map_keys</code></td>
+                        <td>Map operations</td>
+                    </tr>
+                </table>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">collections.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">yaad</span> names <span class="kw">hai</span> list_nayi()</div>
+                        <div>list_daal(names, <span class="str">"patel krish"</span>)</div>
+                        <div>list_daal(names, <span class="str">"nivi"</span>)</div>
+                        <div><span class="fn">bolo</span> list_lao(names, <span class="num">1</span>)</div>
+                        <div>&nbsp;</div>
+                        <div><span class="kw">yaad</span> profile <span class="kw">hai</span> map_naya()</div>
+                        <div>map_set(profile, <span class="str">"city"</span>, <span class="str">"mumbai"</span>)</div>
+                        <div><span class="fn">bolo</span> map_get(profile, <span class="str">"city"</span>)</div>
+                        <div><span class="fn">bolo</span> map_has(profile, <span class="str">"city"</span>)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- String Toolkit -->
+            <div class="doc-section" id="strings">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-text"></i> String Toolkit</div>
+                <p class="doc-p">Expanded string helpers make text processing much easier.</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Built-in</th>
+                        <th>Use</th>
+                    </tr>
+                    <tr>
+                        <td>lafz_trim(value)</td>
+                        <td>Trim whitespace</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_lower(value)</td>
+                        <td>Lowercase conversion</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_upper(value)</td>
+                        <td>Uppercase conversion</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_contains(text, needle)</td>
+                        <td>Contains check</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_replace(text, from, to)</td>
+                        <td>Replace all matches</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_split(text, sep)</td>
+                        <td>Split text into list</td>
+                    </tr>
+                    <tr>
+                        <td>lafz_join(list, sep)</td>
+                        <td>Join list into string</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Filesystem -->
+            <div class="doc-section" id="filesystem">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-folder-open-line"></i> Filesystem Built-ins</div>
+                <p class="doc-p">Use these helpers for reading/writing files directly from Lovelang.</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Built-in</th>
+                        <th>Alias</th>
+                        <th>Use</th>
+                    </tr>
+                    <tr>
+                        <td>dil_khol_ke_padho(path)</td>
+                        <td><code>file_padho</code></td>
+                        <td>Read full text</td>
+                    </tr>
+                    <tr>
+                        <td>ishq_likhdo(path, text)</td>
+                        <td><code>file_likho</code></td>
+                        <td>Write/overwrite text</td>
+                    </tr>
+                    <tr>
+                        <td>ishq_joddo(path, text)</td>
+                        <td><code>file_jodo</code></td>
+                        <td>Append text</td>
+                    </tr>
+                    <tr>
+                        <td>raasta_hai_kya(path)</td>
+                        <td><code>file_hai_kya</code></td>
+                        <td>Path exists check</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Utilities -->
+            <div class="doc-section" id="utilities">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-tools-line"></i> Type + Conversion Utilities</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Built-in</th>
+                        <th>Use</th>
+                    </tr>
+                    <tr>
+                        <td>lambai(value), len(value)</td>
+                        <td>Length for string/list/map</td>
+                    </tr>
+                    <tr>
+                        <td>type_of(value), kya_type(value)</td>
+                        <td>Runtime type name</td>
+                    </tr>
+                    <tr>
+                        <td>to_text(value), text_banao(value)</td>
+                        <td>Convert to string</td>
+                    </tr>
+                    <tr>
+                        <td>to_int(value), int_banao(value)</td>
+                        <td>Convert to integer</td>
+                    </tr>
+                    <tr>
+                        <td>to_bool(value), bool_banao(value)</td>
+                        <td>Convert to boolean</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Operators -->
+            <div class="doc-section" id="operators">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-function-line"></i> Operators</div>
+                <p class="doc-p">Every operator has both a symbol form and a word form. Use whichever reads more
+                    naturally.</p>
+
+                <div class="op-grid">
+                    <div class="op-card">
+                        <div class="op-card-title">Arithmetic</div>
+                        <div class="op-row"><span class="op-sym">+</span><span class="op-word">milan</span><span
+                                class="op-desc">add / join</span></div>
+                        <div class="op-row"><span class="op-sym">-</span><span class="op-word">doori</span><span
+                                class="op-desc">subtract / distance</span></div>
+                        <div class="op-row"><span class="op-sym">*</span><span class="op-word">intense</span><span
+                                class="op-desc">multiply</span></div>
+                        <div class="op-row"><span class="op-sym">/</span><span class="op-word">divide</span><span
+                                class="op-desc">divide</span></div>
+                        <div class="op-row"><span class="op-sym">%</span><span class="op-word">—</span><span
+                                class="op-desc">modulo</span></div>
+                    </div>
+                    <div class="op-card">
+                        <div class="op-card-title">Comparison</div>
+                        <div class="op-row"><span class="op-sym">==</span><span class="op-word">barabar hai</span><span
+                                class="op-desc">equals</span></div>
+                        <div class="op-row"><span class="op-sym">==</span><span class="op-word">same hai</span><span
+                                class="op-desc">equals (alias)</span></div>
+                        <div class="op-row"><span class="op-sym">!=</span><span class="op-word">alag hai</span><span
+                                class="op-desc">not equal</span></div>
+                        <div class="op-row"><span class="op-sym">&lt;</span><span class="op-word">chhota hai</span><span
+                                class="op-desc">less than</span></div>
+                        <div class="op-row"><span class="op-sym">&gt;</span><span class="op-word">bada hai</span><span
+                                class="op-desc">greater than</span></div>
+                        <div class="op-row"><span class="op-sym">&lt;=</span><span class="op-word">chhota ya barabar
+                                hai</span><span class="op-desc">≤</span></div>
+                        <div class="op-row"><span class="op-sym">&gt;=</span><span class="op-word">bada ya barabar
+                                hai</span><span class="op-desc">≥</span></div>
+                    </div>
+                    <div class="op-card">
+                        <div class="op-card-title">Logical</div>
+                        <div class="op-row"><span class="op-sym">&&</span><span class="op-word">aur</span><span
+                                class="op-desc">and</span></div>
+                        <div class="op-row"><span class="op-sym">||</span><span class="op-word">ya</span><span
+                                class="op-desc">or</span></div>
+                        <div class="op-row"><span class="op-sym">!</span><span class="op-word">nahi</span><span
+                                class="op-desc">not</span></div>
+                    </div>
+                    <div class="op-card">
+                        <div class="op-card-title">Examples</div>
+                        <div class="op-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+                            <span style="font-family:monospace;font-size:0.78rem;color:var(--red2)">a milan
+                                b</span><span class="op-desc">a + b</span>
+                        </div>
+                        <div class="op-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+                            <span style="font-family:monospace;font-size:0.78rem;color:var(--red2)">x bada hai
+                                10</span><span class="op-desc">x > 10</span>
+                        </div>
+                        <div class="op-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+                            <span style="font-family:monospace;font-size:0.78rem;color:var(--red2)">nahi
+                                sach</span><span class="op-desc">!true = false</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output -->
+            <div class="doc-section" id="output">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-terminal-line"></i> Output Statements</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Statement</th>
+                        <th>Behavior</th>
+                    </tr>
+                    <tr>
+                        <td>bolo expr</td>
+                        <td>Print expression to stdout</td>
+                    </tr>
+                    <tr>
+                        <td>typing</td>
+                        <td>Print a typing indicator line</td>
+                    </tr>
+                    <tr>
+                        <td>typing...</td>
+                        <td>Human alias for typing (preprocessor normalizes)</td>
+                    </tr>
+                    <tr>
+                        <td>baby bolo naa expr</td>
+                        <td>Human alias for bolo (multiple variants)</td>
+                    </tr>
+                </table>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">output.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="fn">bolo</span> <span class="str">"hello world"</span></div>
+                        <div><span class="fn">bolo</span> <span class="num">42</span></div>
+                        <div><span class="fn">bolo</span> <span class="str">"score: "</span> <span
+                                class="kw">milan</span> score</div>
+                        <div><span class="fn">typing...</span> <span class="cm">// prints typing indicator</span></div>
+                        <div><span class="fn">baby bolo naa</span> <span class="str">"heyyy"</span> <span class="cm">//
+                                same as bolo</span></div>
+                        <div><span class="fn">baby_bolo_na</span> <span class="str">"hi"</span> <span class="cm">//
+                                underscore form also works</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conditionals -->
+            <div class="doc-section" id="conditionals">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-git-branch-line"></i> Conditionals</div>
+                <p class="doc-p">Two syntactic forms, same semantics:</p>
+
+                <div class="doc-h3">Natural Style (Recommended)</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">conditionals.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">agar</span> score <span class="kw">bada hai</span> <span
+                                class="num">90</span> <span class="kw">toh</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"A grade 🎉"</span></div>
+                        <div><span class="kw">warna agar</span> score <span class="kw">bada hai</span> <span
+                                class="num">60</span> <span class="kw">toh</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"passing"</span></div>
+                        <div><span class="kw">warna</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"try again :("</span></div>
+                        <div><span class="kw">bas itna hi</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">Core Style</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">agar</span> (score &gt; <span class="num">90</span>) <span
+                                class="kw">ye_karo</span> {</div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"A grade"</span>;</div>
+                        <div>} <span class="kw">vo_karo</span> {</div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"not yet"</span>;</div>
+                        <div>}</div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">One-Liner</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm">// sun na agar cond toh then_stmt warna else_stmt</span></div>
+                        <div><span class="fn">sun na agar</span> ok <span class="kw">toh</span> <span
+                                class="fn">bolo</span> <span class="str">"yes"</span> <span class="kw">warna</span>
+                            <span class="fn">bolo</span> <span class="str">"no"</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-alert">
+                    <strong>Note:</strong> <code>bewafa</code> can be used in place of a secondary condition check
+                    (similar to else-if). It follows the same <code>bewafa cond toh</code> pattern.
+                </div>
+            </div>
+
+            <!-- Loops -->
+            <div class="doc-section" id="loops">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-repeat-line"></i> Loops</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>intezaar … tab tak</td>
+                        <td>while loop ("waiting until")</td>
+                    </tr>
+                    <tr>
+                        <td>jabtak … tab tak</td>
+                        <td>while loop (alternate form)</td>
+                    </tr>
+                </table>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">loops.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">yaad</span> i <span class="kw">hai</span> <span class="num">0</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// intezaar = "waiting" (while i < 3)</span>
+                        </div>
+                        <div><span class="kw">intezaar</span> i <span class="kw">chhota hai</span> <span
+                                class="num">3</span> <span class="kw">tab tak</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> i</div>
+                        <div>&nbsp;&nbsp;i <span class="kw">hai</span> i <span class="kw">milan</span> <span
+                                class="num">1</span></div>
+                        <div><span class="kw">bas itna hi</span></div>
+                        <div>&nbsp;</div>
+                        <div class="out">» 0</div>
+                        <div class="out">» 1</div>
+                        <div class="out">» 2</div>
+                    </div>
+                </div>
+
+                <div class="doc-alert">
+                    <strong>Loop guard:</strong> A runtime safeguard triggers after 1,000,000 iterations to prevent
+                    infinite loops.
+                </div>
+            </div>
+
+            <!-- Functions -->
+            <div class="doc-section" id="functions">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-braces-line"></i> Functions</div>
+                <p class="doc-p">Functions are defined with <code>dhadkan</code> (heartbeat), return with
+                    <code>ehsaas</code> (feeling), and now support default params + named arguments.</p>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">functions.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm">// Define a function</span></div>
+                        <div><span class="fn">dhadkan</span> greet(name, mood = <span class="str">"romantic"</span>,
+                            punct = <span class="str">"!"</span>) {</div>
+                        <div>&nbsp;&nbsp;<span class="kw">ehsaas</span> mood <span class="kw">milan</span> <span
+                                class="str">": "</span> <span class="kw">milan</span> name <span class="kw">milan</span>
+                            punct</div>
+                        <div>}</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// Positional and named calls</span></div>
+                        <div><span class="fn">bolo</span> greet(<span class="str">"jaan"</span>)</div>
+                        <div><span class="fn">bolo</span> greet(<span class="str">"jaan"</span>, mood = <span
+                                class="str">"shayari"</span>)</div>
+                        <div><span class="fn">bolo</span> greet(<span class="str">"jaan"</span>, mood = <span
+                                class="str">"toxic"</span>, punct = <span class="str">"..."</span>)</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm">// Computation function</span></div>
+                        <div><span class="fn">dhadkan</span> add(a, b = <span class="num">0</span>) {</div>
+                        <div>&nbsp;&nbsp;<span class="kw">ehsaas</span> a <span class="kw">milan</span> b</div>
+                        <div>}</div>
+                        <div><span class="fn">bolo</span> add(<span class="num">5</span>) <span class="cm">// 5</span>
+                        </div>
+                        <div><span class="fn">bolo</span> add(<span class="num">5</span>, b = <span
+                                class="num">3</span>) <span class="cm">// 8</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-alert info">
+                    <strong>Note:</strong> <code>ehsaas</code> is only valid inside a <code>dhadkan</code> block.
+                    Unknown named args or extra positional args raise runtime errors.
+                </div>
+            </div>
+
+            <!-- Festival Blocks -->
+            <div class="doc-section" id="festival">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-sparkling-line"></i> Festival Blocks</div>
+                <p class="doc-p">A <code>festival</code> block is a named block that prints a runtime header and
+                    executes its body. Great for marking celebrations in your code.</p>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">festival.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="fn">festival</span> diwali {</div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"✨ lights on"</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"diyas everywhere"</span></div>
+                        <div>}</div>
+                        <div>&nbsp;</div>
+                        <div class="out">» festival mode: diwali</div>
+                        <div class="out">» ✨ lights on</div>
+                        <div class="out">» diyas everywhere</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="doc-section" id="comments">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-chat-3-line"></i> Comments</div>
+                <p class="doc-p">Lovelang supports five styles of comments:</p>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm">// Classic C line comment</span></div>
+                        <div><span class="cm"># Shell-style comment</span></div>
+                        <div><span class="cm">~~ Love-style tilde comment</span></div>
+                        <div><span class="cm">baby ignore karo this whole line</span></div>
+                        <div><span class="cm">/* block comment across</span></div>
+                        <div><span class="cm"> multiple lines */</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop Behavior -->
+            <div class="doc-section" id="stop">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-stop-circle-line"></i> Stop Behavior</div>
+                <p class="doc-p">Any of these forms stop program execution and print a mode-specific farewell:</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Form</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>love_byeee()</td>
+                        <td>Core function form</td>
+                    </tr>
+                    <tr>
+                        <td>love_you_baby_byeee()</td>
+                        <td>Expressive alias</td>
+                    </tr>
+                    <tr>
+                        <td>love you baby byeee</td>
+                        <td>Natural phrase (preprocessor normalizes)</td>
+                    </tr>
+                    <tr>
+                        <td>love you baby bye...</td>
+                        <td>Trailing ellipsis variant</td>
+                    </tr>
+                </table>
+
+                <p class="doc-p">The farewell message depends on the <code>--mode</code> flag used at runtime. In
+                    romantic mode it's warm, in shayari mode it's poetic, in toxic mode it's dramatic.</p>
+            </div>
+
+            <!-- Human-Mode Aliases -->
+            <div class="doc-section" id="human-mode">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-heart-3-line"></i> Human-Mode Aliases</div>
+                <p class="doc-p">The preprocessor runs before the lexer and normalizes these natural phrases into core
+                    tokens. You can use either form anywhere.</p>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Human Phrase</th>
+                        <th>Normalizes To</th>
+                    </tr>
+                    <tr>
+                        <td>baby bolo na expr</td>
+                        <td>bolo expr</td>
+                    </tr>
+                    <tr>
+                        <td>baby bolo naa expr</td>
+                        <td>bolo expr</td>
+                    </tr>
+                    <tr>
+                        <td>baby_bolo_na expr</td>
+                        <td>bolo expr</td>
+                    </tr>
+                    <tr>
+                        <td>baby yaad rakho name</td>
+                        <td>vada name</td>
+                    </tr>
+                    <tr>
+                        <td>baby yad rakho name</td>
+                        <td>vada name</td>
+                    </tr>
+                    <tr>
+                        <td>baby_yaad_rakho name</td>
+                        <td>vada name</td>
+                    </tr>
+                    <tr>
+                        <td>yaad karo name</td>
+                        <td>yaad_karo name</td>
+                    </tr>
+                    <tr>
+                        <td>typing...</td>
+                        <td>typing</td>
+                    </tr>
+                    <tr>
+                        <td>love you baby bye...</td>
+                        <td>love_byeee()</td>
+                    </tr>
+                    <tr>
+                        <td>agar cond toh</td>
+                        <td>agar (cond) ye_karo {</td>
+                    </tr>
+                    <tr>
+                        <td>bewafa cond toh</td>
+                        <td>bewafa (cond) ye_karo {</td>
+                    </tr>
+                    <tr>
+                        <td>jabtak cond tab tak</td>
+                        <td>jabtak (cond) ye_karo {</td>
+                    </tr>
+                    <tr>
+                        <td>intezaar cond tab tak</td>
+                        <td>intezaar (cond) ye_karo {</td>
+                    </tr>
+                    <tr>
+                        <td>warna</td>
+                        <td>} vo_karo {</td>
+                    </tr>
+                    <tr>
+                        <td>bas itna hi</td>
+                        <td>} (closes natural block)</td>
+                    </tr>
+                    <tr>
+                        <td>sun na agar c toh s1 warna s2</td>
+                        <td>one-liner if-else</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- CLI -->
+            <div class="doc-section" id="cli">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-command-line"></i> CLI Reference</div>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">usage</span>
+                    </div>
+                    <div class="cb-body">
+                        <div>lovelang &lt;file.love&gt; [options]</div>
+                        <div>&nbsp;</div>
+                        <div>Options:</div>
+                        <div> --tokens Print token stream after preprocessing</div>
+                        <div> --mode &lt;mode&gt; Set output tone (romantic|toxic|shayari)</div>
+                        <div> --debug-love Print variable set/update logs at runtime</div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">examples</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm"># Run normally</span></div>
+                        <div><span class="prompt2">$</span> ./lovelang hello.love</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Run in shayari mode</span></div>
+                        <div><span class="prompt2">$</span> ./lovelang hello.love --mode shayari</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Debug token stream</span></div>
+                        <div><span class="prompt2">$</span> ./lovelang hello.love --tokens</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Debug variable operations</span></div>
+                        <div><span class="prompt2">$</span> ./lovelang hello.love --debug-love</div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Combine flags</span></div>
+                        <div><span class="prompt2">$</span> ./lovelang hello.love --mode romantic --debug-love</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modes -->
+            <div class="doc-section" id="modes">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-emotion-line"></i> Run Modes</div>
+                <p class="doc-p">Modes change the emotional tone of runtime output messages (especially the farewell
+                    message from <code>love_byeee()</code>).</p>
+
+                <div class="mode-doc-grid">
+                    <div class="mode-doc-card">
+                        <span class="emoji">🌹</span>
+                        <div class="name">romantic</div>
+                        <span class="flag">--mode romantic</span>
+                        <div class="desc">Warm, loving messages. The default vibe.</div>
+                    </div>
+                    <div class="mode-doc-card">
+                        <span class="emoji">🔥</span>
+                        <div class="name">toxic</div>
+                        <span class="flag">--mode toxic</span>
+                        <div class="desc">Dramatic, intense. Good for venting through code.</div>
+                    </div>
+                    <div class="mode-doc-card">
+                        <span class="emoji">🎭</span>
+                        <div class="name">shayari</div>
+                        <span class="flag">--mode shayari</span>
+                        <div class="desc">Poetic Urdu-inspired tone. Your terminal, a mushaira.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debug Flags -->
+            <div class="doc-section" id="debug">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-bug-line"></i> Debug Flags</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Flag</th>
+                        <th>What it does</th>
+                    </tr>
+                    <tr>
+                        <td>--tokens</td>
+                        <td>Prints the full token stream produced after preprocessing. Useful to see how human-mode
+                            phrases were normalized.</td>
+                    </tr>
+                    <tr>
+                        <td>--debug-love</td>
+                        <td>Logs every variable set and update operation at runtime, showing the variable name and new
+                            value.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Extension Overview -->
+            <div class="doc-section" id="extension">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-puzzle-2-line"></i> VS Code Extension</div>
+                <p class="doc-p"><strong>Love Lang Tools</strong> is a full-featured VS Code extension for writing
+                    <code>.love</code> files. It provides syntax highlighting, IntelliSense, hover docs, a run button,
+                    and a visual settings panel.</p>
+
+                <div class="doc-badge-bar">
+                    <span class="doc-badge">Language ID: lovelang</span>
+                    <span class="doc-badge">File ext: .love</span>
+                    <span class="doc-badge green">v1.0.0</span>
+                </div>
+            </div>
+
+            <!-- Ext Install -->
+            <div class="doc-section" id="ext-install">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-install-line"></i> Installing the Extension</div>
+
+                <div class="doc-h3">Via CLI (recommended)</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="cm"># Standard install</span></div>
+                        <div><span class="prompt2">$</span> code --install-extension love-lang-tools-1.0.0.vsix --force
+                        </div>
+                        <div>&nbsp;</div>
+                        <div><span class="cm"># Install to a specific profile</span></div>
+                        <div><span class="prompt2">$</span> code --install-extension love-lang-tools-1.0.0.vsix --force
+                            --profile comp</div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">Via VS Code UI</div>
+                <ul class="doc-ul">
+                    <li class="doc-li">Open the Extensions panel (<code>Ctrl+Shift+X</code>)</li>
+                    <li class="doc-li">Click the <strong>···</strong> menu at the top right</li>
+                    <li class="doc-li">Select <strong>Install from VSIX...</strong></li>
+                    <li class="doc-li">Navigate to and select <code>love-lang-tools-1.0.0.vsix</code></li>
+                </ul>
+
+                <div class="doc-h3">Building the Extension yourself</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="prompt2">$</span> cd extension</div>
+                        <div><span class="prompt2">$</span> npm run check</div>
+                        <div><span class="prompt2">$</span> npm run package</div>
+                        <div><span class="cm"># installs the generated .vsix</span></div>
+                        <div><span class="prompt2">$</span> code --install-extension love-lang-tools-*.vsix --force
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ext Features -->
+            <div class="doc-section" id="ext-features">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-star-line"></i> Extension Features</div>
+                <ul class="doc-ul">
+                    <li class="doc-li"><strong>Syntax Highlighting</strong> — TextMate grammar covers declarations,
+                        operators, conditionals, loops, functions, festival blocks, modules, human-mode phrases, and
+                        modern built-ins.</li>
+                    <li class="doc-li"><strong>Fallback Decoration Highlighting</strong> — If your theme doesn't color
+                        custom scopes, the extension applies its own decorations. Force-enable with
+                        <code>lovelang.forceDecorationHighlighting = true</code>.</li>
+                    <li class="doc-li"><strong>IntelliSense & Snippets</strong> — Autocomplete for module syntax,
+                        default/named-arg patterns, collections, string toolkit, conversion helpers, filesystem
+                        functions, and human phrases.</li>
+                    <li class="doc-li"><strong>Hover Documentation</strong> — Hover over any keyword to see its meaning,
+                        aliases, and usage.</li>
+                    <li class="doc-li"><strong>Run Command</strong> — "Run Current File" button in editor title bar for
+                        <code>.love</code> files. Also available via Command Palette.</li>
+                    <li class="doc-li"><strong>Settings Webview</strong> — Visual panel to configure all extension
+                        settings without editing JSON.</li>
+                    <li class="doc-li"><strong>Auto-association</strong> — <code>.love</code> files automatically switch
+                        to Lovelang mode on open.</li>
+                </ul>
+            </div>
+
+            <!-- Ext Settings -->
+            <div class="doc-section" id="ext-settings">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-settings-4-line"></i> Extension Settings</div>
+                <p class="doc-p">All settings configurable via VS Code Settings UI, <code>settings.json</code>, or the
+                    Lovelang Settings webview panel.</p>
+
+                <div class="settings-grid">
+                    <div class="setting-row"
+                        style="background:rgba(255,60,80,0.04);border-bottom:1px solid var(--border);">
+                        <strong style="color:var(--red2);font-size:0.75rem;">Setting</strong>
+                        <strong style="color:var(--red2);font-size:0.75rem;">Type</strong>
+                        <strong style="color:var(--red2);font-size:0.75rem;">Description</strong>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runUseScript</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Use run script (run_love.sh / .cmd) instead of binary directly</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runScriptPath</div>
+                        <div class="setting-type">string</div>
+                        <div class="setting-desc">Custom path to run script (overrides auto-detected path)</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runBinaryPath</div>
+                        <div class="setting-type">string</div>
+                        <div class="setting-desc">Path to the lovelang binary (fallback if script disabled)</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runMode</div>
+                        <div class="setting-type">string</div>
+                        <div class="setting-desc">Default run mode: romantic | toxic | shayari</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runTokens</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Pass --tokens flag when running</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runDebugLove</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Pass --debug-love flag when running</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runExtraArgs</div>
+                        <div class="setting-type">string[]</div>
+                        <div class="setting-desc">Extra CLI arguments appended to every run</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.runInNewTerminal</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Open a new terminal for each run</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.suggestions.includeHumanPhrases</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Include human-mode phrases in autocomplete suggestions</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.autoAssociateLoveFiles</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Auto-switch .love files to Lovelang language mode</div>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-key">lovelang.forceDecorationHighlighting</div>
+                        <div class="setting-type">bool</div>
+                        <div class="setting-desc">Force extension's own decorations even when theme provides scopes
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ext Commands -->
+            <div class="doc-section" id="ext-commands">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-play-circle-line"></i> Extension Commands</div>
+
+                <table class="doc-table">
+                    <tr>
+                        <th>Command</th>
+                        <th>ID</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Lovelang: Run Current File</td>
+                        <td>loveLanguage.runCurrentFile</td>
+                        <td>Runs current .love file in terminal with configured flags</td>
+                    </tr>
+                    <tr>
+                        <td>Lovelang: Settings</td>
+                        <td>loveLanguage.openSettingsPanel</td>
+                        <td>Opens the visual settings webview panel</td>
+                    </tr>
+                    <tr>
+                        <td>Lovelang: Open README</td>
+                        <td>loveLanguage.openExtensionReadme</td>
+                        <td>Opens extension documentation</td>
+                    </tr>
+                </table>
+
+                <p class="doc-p">Editor title actions (shown for <code>.love</code> files): <strong>Run</strong> and
+                    <strong>Settings</strong>.</p>
+
+                <div class="doc-alert info">
+                    <strong>Run priority:</strong> If <code>runUseScript=true</code>, uses the platform-appropriate run
+                    script. If the script is missing or disabled, falls back to <code>runBinaryPath</code>. Optional
+                    flags (<code>--mode</code>, <code>--tokens</code>, <code>--debug-love</code>, extra args) are
+                    appended from settings.
+                </div>
+
+                <div class="doc-h3">Troubleshooting</div>
+                <ul class="doc-ul">
+                    <li class="doc-li">If highlighting looks plain, run <code>Developer: Reload Window</code> from
+                        command palette</li>
+                    <li class="doc-li">Confirm language mode shows <strong>Lovelang</strong> in the status bar</li>
+                    <li class="doc-li">Set <code>lovelang.forceDecorationHighlighting = true</code> if theme doesn't
+                        color custom scopes</li>
+                </ul>
+            </div>
+
+            <!-- Examples -->
+            <div class="doc-section" id="examples">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-file-list-line"></i> Example Programs</div>
+
+                <div class="doc-alert success">
+                    <strong>New examples:</strong> <code>examples/11-collections-and-strings.love</code>,
+                    <code>examples/12-modules-and-filesystem.love</code>,
+                    <code>examples/16-all-features-showcase.love</code>, plus edge-case error demos
+                    <code>13</code>/<code>14</code>/<code>15</code>.
+                </div>
+
+                <div class="doc-h3">Counter Loop</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">counter.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">yaad</span> i <span class="kw">hai</span> <span class="num">1</span></div>
+                        <div><span class="kw">intezaar</span> i <span class="kw">chhota ya barabar hai</span> <span
+                                class="num">5</span> <span class="kw">tab tak</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"count: "</span> <span
+                                class="kw">milan</span> i</div>
+                        <div>&nbsp;&nbsp;i <span class="kw">hai</span> i <span class="kw">milan</span> <span
+                                class="num">1</span></div>
+                        <div><span class="kw">bas itna hi</span></div>
+                        <div><span class="kw">love you baby byeee</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">FizzBuzz in Lovelang</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">fizzbuzz.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">yaad</span> n <span class="kw">hai</span> <span class="num">1</span></div>
+                        <div><span class="kw">intezaar</span> n <span class="kw">chhota ya barabar hai</span> <span
+                                class="num">15</span> <span class="kw">tab tak</span></div>
+                        <div>&nbsp;&nbsp;<span class="kw">agar</span> n % <span class="num">15</span> <span
+                                class="kw">barabar hai</span> <span class="num">0</span> <span class="kw">toh</span>
+                        </div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"FizzBuzz"</span>
+                        </div>
+                        <div>&nbsp;&nbsp;<span class="kw">warna agar</span> n % <span class="num">3</span> <span
+                                class="kw">barabar hai</span> <span class="num">0</span> <span class="kw">toh</span>
+                        </div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"Fizz"</span></div>
+                        <div>&nbsp;&nbsp;<span class="kw">warna agar</span> n % <span class="num">5</span> <span
+                                class="kw">barabar hai</span> <span class="num">0</span> <span class="kw">toh</span>
+                        </div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"Buzz"</span></div>
+                        <div>&nbsp;&nbsp;<span class="kw">warna</span></div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">bolo</span> n</div>
+                        <div>&nbsp;&nbsp;<span class="kw">bas itna hi</span></div>
+                        <div>&nbsp;&nbsp;n <span class="kw">hai</span> n <span class="kw">milan</span> <span
+                                class="num">1</span></div>
+                        <div><span class="kw">bas itna hi</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">Recursive Factorial</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">factorial.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="fn">dhadkan</span> factorial(n) {</div>
+                        <div>&nbsp;&nbsp;<span class="kw">agar</span> n <span class="kw">chhota ya barabar hai</span>
+                            <span class="num">1</span> <span class="kw">toh</span></div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">ehsaas</span> <span class="num">1</span></div>
+                        <div>&nbsp;&nbsp;<span class="kw">bas itna hi</span></div>
+                        <div>&nbsp;&nbsp;<span class="kw">ehsaas</span> n <span class="kw">intense</span> factorial(n
+                            <span class="kw">doori</span> <span class="num">1</span>)</div>
+                        <div>}</div>
+                        <div>&nbsp;</div>
+                        <div><span class="fn">bolo</span> factorial(<span class="num">5</span>) <span class="cm">//
+                                120</span></div>
+                        <div><span class="kw">love you baby byeee</span></div>
+                    </div>
+                </div>
+
+                <div class="doc-h3">Romantic Greeting with Festival</div>
+                <div class="code-block">
+                    <div class="cb-header">
+                        <div class="cb-dot r"></div>
+                        <div class="cb-dot y"></div>
+                        <div class="cb-dot g"></div><span class="cb-name">greeting.love</span>
+                    </div>
+                    <div class="cb-body">
+                        <div><span class="kw">vada</span> myname <span class="kw">hai</span> <span
+                                class="str">"jaan"</span></div>
+                        <div>&nbsp;</div>
+                        <div><span class="fn">festival</span> welcome_party {</div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"🎊 tum aa gaye!"</span></div>
+                        <div>&nbsp;&nbsp;<span class="fn">bolo</span> <span class="str">"welcome, "</span> <span
+                                class="kw">milan</span> myname</div>
+                        <div>}</div>
+                        <div>&nbsp;</div>
+                        <div><span class="kw">yaad</span> gift <span class="kw">hai</span> <span class="str">"💌"</span>
+                        </div>
+                        <div><span class="fn">bolo</span> <span class="str">"tumhara gift: "</span> <span
+                                class="kw">milan</span> gift</div>
+                        <div><span class="kw">love you baby byeee</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="doc-section" id="faq">
+                <div class="doc-anchor"></div>
+                <div class="doc-h2"><i class="ri-question-line"></i> FAQ</div>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-q">Is Lovelang compiled or interpreted? <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                        <div class="faq-a">Interpreted. The pipeline is: <strong>file read → preprocess (human-phrase
+                                normalization) → lex → parse → tree-walk execute</strong>. There is no compilation step.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Can I mix natural-style and core syntax? <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                        <div class="faq-a">Yes, that's the intended workflow. You can write
+                            <code>agar x bada hai 0 toh</code> in one block and <code>agar (x > 0) ye_karo {</code> in
+                            the next. The preprocessor handles normalization before the lexer runs.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Does <code>love you baby byeee</code> actually stop execution? <i
+                                class="ri-arrow-down-s-line"></i></div>
+                        <div class="faq-a">Yes. The preprocessor normalizes it to <code>love_byeee()</code> which sets
+                            the runtime stop flag. Any statements after it in the same file do not execute.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">What are removed features (streamlined mode)? <i
+                                class="ri-arrow-down-s-line"></i></div>
+                        <div class="faq-a">The following old keywords were removed in streamlined mode:
+                            <code>dil</code>, <code>mood</code>, <code>junoon</code> (old mutable), <code>ishq</code>
+                            (old const), and old output family <code>babu_miss_you</code>, <code>shayarana</code>,
+                            <code>status</code>, <code>last_seen</code>, <code>seen</code>, <code>auto_reply</code>,
+                            <code>gaana</code>. Built-ins <code>chai_break</code> and <code>date_plan</code> were also
+                            removed. If these appear, the parser reports an unknown statement.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">What platforms does Lovelang run on? <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                        <div class="faq-a">macOS, Linux, and Windows. Helper run scripts are provided for all three
+                            platforms: <code>run_love.sh</code> (macOS/Linux), <code>run_love.cmd</code> (Windows CMD),
+                            <code>run_love.ps1</code> (PowerShell).</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Is there a loop guard? <i class="ri-arrow-down-s-line"></i></div>
+                        <div class="faq-a">Yes. The runtime automatically breaks out of a loop after 1,000,000
+                            iterations with a warning. This prevents accidental infinite loops from freezing your
+                            terminal.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom nav -->
+            <div class="doc-nav-btns">
+                <a href="index.html" class="doc-nav-btn">
+                    <i class="ri-arrow-left-line"></i>
+                    <div>
+                        <div class="nav-meta">Previous</div>
+                        <div class="nav-title">Home</div>
+                    </div>
+                </a>
+                <a href="https://github.com/PATEL-KRISH-0/lovelang" class="doc-nav-btn">
+                    <div style="text-align:right">
+                        <div class="nav-meta">Repository</div>
+                        <div class="nav-title">GitHub →</div>
+                    </div>
+                    <i class="ri-github-fill"></i>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        window.LOVELANG_VERSION = "1.0.0";
+    </script>
+    <script src="js/docs.js"></script>
+    <script src="analytics.js"></script>
+</body>
+
+</html>

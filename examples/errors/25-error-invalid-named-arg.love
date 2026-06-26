@@ -1,0 +1,16 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 25 — Error: Invalid Named Argument
+baby ignore karo  Expected: runtime error — unknown parameter name
+baby ignore karo  This file SHOULD fail — used in error testing
+baby ignore karo ════════════════════════════════════════════════════════
+
+dhadkan greet(name, mood) {
+  bolo name milan " feels " milan mood
+  ehsaas null
+}
+
+bolo "calling with wrong named arg..."
+greet("Laila", vibe = "romantic")
+bolo "this line should never print"
+
+love you baby byeee

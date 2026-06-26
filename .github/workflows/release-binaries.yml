@@ -1,0 +1,153 @@
+name: release-binaries
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to publish (example: v1.1.0)"
+        required: true
+        type: string
+
+concurrency:
+  group: release-binaries-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.tag }}
+  # All interpreter + native-codegen sources
+  SRC: >-
+    src/main.c
+    src/lexer.c
+    src/parser.c
+    src/compiler.c
+    src/codegen.c
+    src/codegen_x64.c
+    src/runtime.c
+  CFLAGS: "-std=c11 -Wall -Wextra -O2 -Iinclude"
+
+jobs:
+  # ── Linux + Windows via Zig cross-compiler ─────────────────────────────────
+  build-linux-and-windows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+        with:
+          version: "0.14.0"
+
+      - name: Build Linux and Windows binaries
+        shell: bash
+        run: |
+          mkdir -p dist
+          echo "=== BUILD LOGS ===" > build_error.txt
+          
+          echo "Building x86_64-linux-gnu..." >> build_error.txt
+          zig cc -target x86_64-linux-gnu   ${{ env.CFLAGS }} ${{ env.SRC }} -o dist/lovelang-linux-x64 >> build_error.txt 2>&1 || true
+          
+          echo "Building aarch64-linux-gnu..." >> build_error.txt
+          zig cc -target aarch64-linux-gnu   ${{ env.CFLAGS }} ${{ env.SRC }} -o dist/lovelang-linux-arm64 >> build_error.txt 2>&1 || true
+          
+          echo "Building x86_64-windows-gnu..." >> build_error.txt
+          zig cc -target x86_64-windows-gnu  ${{ env.CFLAGS }} ${{ env.SRC }} -o dist/lovelang-win32-x64.exe >> build_error.txt 2>&1 || true
+          
+          echo "Building aarch64-windows-gnu..." >> build_error.txt
+          zig cc -target aarch64-windows-gnu ${{ env.CFLAGS }} ${{ env.SRC }} -o dist/lovelang-win32-arm64.exe >> build_error.txt 2>&1 || true
+          
+          # If any binary is missing, we failed, so commit the log and fail the build
+          if [ ! -f dist/lovelang-linux-x64 ] || [ ! -f dist/lovelang-linux-arm64 ] || [ ! -f dist/lovelang-win32-x64.exe ] || [ ! -f dist/lovelang-win32-arm64.exe ]; then
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "actions@github.com"
+            git add build_error.txt
+            git commit -m "build: compile error log [skip ci]" || true
+            git push origin main || true
+            exit 1
+          fi
+          
+          chmod +x dist/lovelang-linux-x64 dist/lovelang-linux-arm64
+          echo "Built binaries:"
+          ls -lh dist/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries-linux-and-windows
+          path: dist/*
+
+  # ── macOS — both arm64 + x64 in one job (saves a full runner setup) ────────
+  build-macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build macOS arm64 binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cc ${{ env.CFLAGS }} ${{ env.SRC }} \
+            -o dist/lovelang-darwin-arm64
+          chmod +x dist/lovelang-darwin-arm64
+
+      - name: Build macOS x64 binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          cc ${{ env.CFLAGS }} -arch x86_64 ${{ env.SRC }} \
+            -o dist/lovelang-darwin-x64
+          chmod +x dist/lovelang-darwin-x64
+
+          echo "Built macOS binaries:"
+          ls -lh dist/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries-darwin
+          path: dist/*
+
+  # ── Assemble release ───────────────────────────────────────────────────────
+  publish-release:
+    needs:
+      - build-linux-and-windows
+      - build-macos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries-linux-and-windows
+          path: dist
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries-darwin
+          path: dist
+
+      - name: Generate SHA-256 checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist
+          sha256sum * > checksums.txt
+          echo "Release assets:"
+          cat checksums.txt
+
+      - name: Create or update GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          generate_release_notes: true
+          files: |
+            dist/lovelang-darwin-arm64
+            dist/lovelang-darwin-x64
+            dist/lovelang-linux-x64
+            dist/lovelang-linux-arm64
+            dist/lovelang-win32-x64.exe
+            dist/lovelang-win32-arm64.exe
+            dist/checksums.txt
+          fail_on_unmatched_files: true

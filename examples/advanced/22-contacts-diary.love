@@ -1,0 +1,67 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 22 — Contacts Diary
+baby ignore karo  A mini contacts manager — pure Lovelang style
+baby ignore karo ════════════════════════════════════════════════════════
+
+dhadkan new_contact(name, phone, city, note) {
+  yaad c hai map_naya()
+  map_set(c, "name", name)
+  map_set(c, "phone", phone)
+  map_set(c, "city", city)
+  map_set(c, "note", note)
+  ehsaas c
+}
+
+dhadkan show_contact(c) {
+  baby bolo na "━━━━━━━━━━━━━━━"
+  bolo "naam  : " milan map_get(c, "name")
+  bolo "phone : " milan map_get(c, "phone")
+  bolo "sheher: " milan map_get(c, "city")
+  bolo "note  : " milan map_get(c, "note")
+  ehsaas null
+}
+
+dhadkan find_by_city(contacts, city) {
+  yaad found hai list_nayi()
+  yaad i hai 0
+  intezaar i chhota hai lambai(contacts) tab tak
+    yaad c hai list_lao(contacts, i)
+    agar map_get(c, "city") barabar hai city toh
+      list_daal(found, c)
+    bas itna hi
+    i hai i milan 1
+  bas itna hi
+  ehsaas found
+}
+
+~~ Build the diary
+yaad diary hai list_nayi()
+list_daal(diary, new_contact("Laila", "+91-9999-0001", "Delhi", "dil waali dost 💌"))
+list_daal(diary, new_contact("Majnu", "+91-9999-0002", "Delhi", "poet, dreamer"))
+list_daal(diary, new_contact("Heer", "+91-9999-0003", "Lahore", "waiting for Ranjha"))
+list_daal(diary, new_contact("Ranjha", "+91-9999-0004", "Jhang", "always searching"))
+list_daal(diary, new_contact("Soni", "+91-9999-0005", "Sindh", "brave and fearless"))
+
+~~ Show all
+bolo "══ Contacts Diary ══"
+yaad i hai 0
+intezaar i chhota hai lambai(diary) tab tak
+  show_contact(list_lao(diary, i))
+  i hai i milan 1
+bas itna hi
+
+~~ Find by city
+bolo ""
+bolo "contacts from Delhi:"
+yaad delhi_contacts hai find_by_city(diary, "Delhi")
+yaad j hai 0
+intezaar j chhota hai lambai(delhi_contacts) tab tak
+  bolo map_get(list_lao(delhi_contacts, j), "name")
+  j hai j milan 1
+bas itna hi
+
+bolo ""
+bolo "total contacts:"
+bolo lambai(diary)
+
+love you baby byeee

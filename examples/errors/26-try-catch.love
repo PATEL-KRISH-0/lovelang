@@ -1,0 +1,15 @@
+koshish {
+    bolo "trying something dangerous..."
+    dil_tuta "this is an error message"
+    bolo "this should not print"
+} dil_jodo (galti) {
+    bolo "caught error: " + galti
+}
+
+propose_karo {
+    bolo "trying with alias..."
+    x = 10
+    dil_tuta x + 5
+} dil_jodo (err) {
+    bolo "caught number error: " + err
+}

@@ -1,0 +1,58 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 21 — Todo App
+baby ignore karo  A fully working todo list using lists and maps
+baby ignore karo ════════════════════════════════════════════════════════
+
+dhadkan make_task(title, done) {
+  yaad t hai map_naya()
+  map_set(t, "title", title)
+  map_set(t, "done", done)
+  ehsaas t
+}
+
+dhadkan print_task(t, idx) {
+  yaad status hai "[ ]"
+  agar map_get(t, "done") toh
+    status hai "[x]"
+  bas itna hi
+  baby bolo na to_text(idx milan 1) milan ". " milan status milan " " milan map_get(t, "title")
+  ehsaas null
+}
+
+dhadkan print_all(tasks) {
+  bolo "══ Todo List ══"
+  yaad i hai 0
+  intezaar i chhota hai lambai(tasks) tab tak
+    print_task(list_lao(tasks, i), i)
+    i hai i milan 1
+  bas itna hi
+  ehsaas null
+}
+
+dhadkan count_done(tasks) {
+  yaad done hai 0
+  yaad i hai 0
+  intezaar i chhota hai lambai(tasks) tab tak
+    agar map_get(list_lao(tasks, i), "done") toh
+      done hai done milan 1
+    bas itna hi
+    i hai i milan 1
+  bas itna hi
+  ehsaas done
+}
+
+~~ Create our todos
+yaad todos hai list_nayi()
+list_daal(todos, make_task("Lovelang seekho", sach))
+list_daal(todos, make_task("Pehla .love file likho", sach))
+list_daal(todos, make_task("VS Code extension install karo", jhooth))
+list_daal(todos, make_task("Ek dost ko Lovelang sikhao", jhooth))
+list_daal(todos, make_task("Pehla native binary banao", jhooth))
+
+print_all(todos)
+
+bolo ""
+bolo "completed:"
+bolo to_text(count_done(todos)) milan " / " milan to_text(lambai(todos))
+
+love you baby byeee

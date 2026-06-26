@@ -1,0 +1,248 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 27 — Phase Test Suite
+baby ignore karo  Automated correctness checks for all Lovelang features.
+baby ignore karo  Every bolo here is a verifiable assertion — the expected
+baby ignore karo  output is documented inline for test runners to compare.
+baby ignore karo  Run: lovelang examples/showcase/27-phase-tests.love
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ ── Phase 1: Variables and Assignment ──
+baby bolo na "=== Phase 1: Variables ==="
+
+yaad x hai 10
+yaad y hai 20
+x hai x milan y
+bolo x
+~~ expected: 30
+
+vada name hai "lovelang"
+bolo name
+~~ expected: lovelang
+
+yaad_karo alias hai "pyaar ki boli"
+bolo alias
+~~ expected: pyaar ki boli
+
+~~ ── Phase 2: Arithmetic with word operators ──
+baby bolo na "=== Phase 2: Arithmetic ==="
+
+bolo 5 milan 3
+~~ expected: 8
+
+bolo 10 doori 4
+~~ expected: 6
+
+bolo 6 intense 7
+~~ expected: 42
+
+bolo 20 divide 4
+~~ expected: 5
+
+bolo 17 baaki 5
+~~ expected: 2
+
+~~ ── Phase 3: Comparisons ──
+baby bolo na "=== Phase 3: Comparisons ==="
+
+bolo 5 bada hai 3
+~~ expected: sach
+
+bolo 2 chhota hai 9
+~~ expected: sach
+
+bolo 4 barabar hai 4
+~~ expected: sach
+
+bolo 4 barabar nahi 5
+~~ expected: sach
+
+bolo 6 bada ya barabar hai 6
+~~ expected: sach
+
+bolo 3 chhota ya barabar hai 3
+~~ expected: sach
+
+~~ ── Phase 4: Conditionals ──
+baby bolo na "=== Phase 4: Conditionals ==="
+
+yaad score hai 85
+
+agar score bada ya barabar hai 90 toh
+  bolo "A"
+warna agar score bada ya barabar hai 75 toh
+  bolo "B"
+warna
+  bolo "C"
+bas itna hi
+~~ expected: B
+
+sun na agar sach toh bolo "yes" warna bolo "no"
+~~ expected: yes
+
+~~ ── Phase 5: Loops ──
+baby bolo na "=== Phase 5: Loops ==="
+
+yaad total hai 0
+yaad i hai 1
+intezaar i chhota ya barabar hai 5 tab tak
+  total hai total milan i
+  i hai i milan 1
+bas itna hi
+bolo total
+~~ expected: 15
+
+~~ ── Phase 6: Break and Continue ──
+baby bolo na "=== Phase 6: Break/Continue ==="
+
+yaad found hai -1
+yaad j hai 0
+intezaar j chhota hai 20 tab tak
+  agar j intense 3 barabar hai 0 aur j bada hai 0 toh
+    found hai j
+    bas_karo
+  bas itna hi
+  j hai j milan 1
+bas itna hi
+bolo found
+~~ expected: 3
+
+yaad evens hai list_nayi()
+yaad k hai 0
+intezaar k chhota hai 10 tab tak
+  agar k intense 2 barabar nahi 0 toh
+    k hai k milan 1
+    aage_bado
+  bas itna hi
+  list_daal(evens, k)
+  k hai k milan 1
+bas itna hi
+bolo lambai(evens)
+~~ expected: 5
+
+~~ ── Phase 7: Functions ──
+baby bolo na "=== Phase 7: Functions ==="
+
+dhadkan add(a, b) {
+  ehsaas a milan b
+}
+bolo add(8, 9)
+~~ expected: 17
+
+dhadkan fac(n) {
+  agar n chhota ya barabar hai 1 toh ehsaas 1 bas itna hi
+  ehsaas n intense fac(n doori 1)
+}
+bolo fac(6)
+~~ expected: 720
+
+dhadkan greet(who, suffix = "!") {
+  ehsaas "hello " milan who milan suffix
+}
+bolo greet("world")
+~~ expected: hello world!
+bolo greet("jaan", " 💌")
+~~ expected: hello jaan 💌
+
+~~ ── Phase 8: Lists ──
+baby bolo na "=== Phase 8: Lists ==="
+
+yaad lst hai list_nayi()
+list_daal(lst, 10)
+list_daal(lst, 20)
+list_daal(lst, 30)
+bolo lambai(lst)
+~~ expected: 3
+bolo list_lao(lst, 1)
+~~ expected: 20
+list_set(lst, 0, 99)
+bolo list_lao(lst, 0)
+~~ expected: 99
+yaad p hai list_nikaal(lst)
+bolo p
+~~ expected: 30
+bolo lambai(lst)
+~~ expected: 2
+
+~~ ── Phase 9: Maps ──
+baby bolo na "=== Phase 9: Maps ==="
+
+yaad m hai map_naya()
+map_set(m, "lang", "lovelang")
+map_set(m, "ver", 2)
+bolo map_get(m, "lang")
+~~ expected: lovelang
+bolo map_has(m, "ver")
+~~ expected: sach
+bolo map_has(m, "xyz")
+~~ expected: jhooth
+yaad ks hai map_keys(m)
+bolo lambai(ks)
+~~ expected: 2
+
+~~ ── Phase 10: Strings ──
+baby bolo na "=== Phase 10: Strings ==="
+
+yaad s hai "  Hello World  "
+bolo lafz_trim(s)
+~~ expected: Hello World
+bolo lafz_upper("hello")
+~~ expected: HELLO
+bolo lafz_lower("WORLD")
+~~ expected: world
+bolo lafz_contains("pyaar", "yaa")
+~~ expected: sach
+bolo lafz_replace("I miss you", "miss", "love")
+~~ expected: I love you
+yaad sp hai lafz_split("a,b,c", ",")
+bolo lambai(sp)
+~~ expected: 3
+bolo lafz_join(sp, "-")
+~~ expected: a-b-c
+
+~~ ── Phase 11: Math ──
+baby bolo na "=== Phase 11: Math ==="
+
+bolo abs(-10)
+~~ expected: 10
+bolo max_val(3, 7)
+~~ expected: 7
+bolo min_val(3, 7)
+~~ expected: 3
+bolo pow_val(3, 3)
+~~ expected: 27
+bolo sqrt_val(25)
+~~ expected: 5
+bolo clamp_val(-1, 0, 10)
+~~ expected: 0
+bolo clamp_val(11, 0, 10)
+~~ expected: 10
+
+~~ ── Phase 12: Type Conversion ──
+baby bolo na "=== Phase 12: Conversion ==="
+
+bolo to_text(42)
+~~ expected: 42
+bolo to_int("99")
+~~ expected: 99
+bolo to_bool(0)
+~~ expected: jhooth
+bolo to_bool(1)
+~~ expected: sach
+
+~~ ── Phase 13: Types ──
+baby bolo na "=== Phase 13: type_of ==="
+
+bolo type_of(1)
+~~ expected: int
+bolo type_of(1.5)
+~~ expected: float
+bolo type_of("hi")
+~~ expected: string
+bolo type_of(sach)
+~~ expected: bool
+bolo type_of(null)
+~~ expected: null
+
+baby bolo naa "=== all phases done ✅ ==="
+
+love you baby byeee

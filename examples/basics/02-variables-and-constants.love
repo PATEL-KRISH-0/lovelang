@@ -1,0 +1,39 @@
+baby ignore karo ═══════════════════════════════════════════════════════════
+baby ignore karo  Example 02 — Variables and Constants
+baby ignore karo  Shows yaad (mutable), vada (immutable), and their aliases.
+baby ignore karo ═══════════════════════════════════════════════════════════
+
+~~ Mutable variables — can change later
+yaad score hai 0
+yaad mood hai "romantic"
+yaad message hai "tum hi ho meri duniya"
+
+baby bolo na "starting score:"
+bolo score
+
+~~ Mutate it — no keyword needed on reassignment
+score hai score milan 10
+bolo "score after milan 10:"
+bolo score
+
+~~ Immutable constants — cannot reassign
+vada max_score hai 100
+vada author hai "patel krish"
+vada heart hai "❤️"
+
+bolo author milan " made this with " milan heart
+
+~~ Human-mode alias: baby yaad rakho = vada
+baby yaad rakho piya hai "forever"
+baby yaad rakho jannat hai "right here"
+
+baby bolo naa "piya is:"
+bolo piya
+bolo "jannat is: " milan jannat
+
+~~ yaad_karo is an alias of yaad (natural phrasing)
+yaad_karo kadam hai 1
+bolo "pehla kadam:"
+bolo kadam
+
+love you baby byeee

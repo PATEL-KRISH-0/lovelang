@@ -1,0 +1,41 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 17 — Modules (import / export)
+baby ignore karo  import inlines another .love file exactly once
+baby ignore karo  export is cosmetic — marks something as public API
+baby ignore karo ════════════════════════════════════════════════════════
+
+import "examples/modules/lib/utils.love"
+
+~~ Use imported functions
+bolo "grade for 92:"
+bolo grade(92)
+
+bolo "grade for 78:"
+bolo grade(78)
+
+bolo "grade for 45:"
+bolo grade(45)
+
+bolo "clamp -5 to [0,100]:"
+bolo clamp_score(-5)
+
+bolo "clamp 150 to [0,100]:"
+bolo clamp_score(150)
+
+bolo "repeat '💌' 5 times:"
+bolo repeat_str("💌", 5)
+
+bolo "is 8 even?"
+bolo is_even(8)
+
+bolo "is 7 even?"
+bolo is_even(7)
+
+bolo "max of 42 and 17:"
+bolo max_of(42, 17)
+
+~~ Import is deduplicated — importing same file again is a no-op
+import "examples/modules/lib/utils.love"
+bolo "second import was silently skipped — safe ✅"
+
+love you baby byeee

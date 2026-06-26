@@ -1,0 +1,109 @@
+name: playground-wasm
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "include/**"
+      - "web/playground.html"
+      - "web/js/playground.js"
+      - ".github/workflows/playground-wasm.yml"
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy updated WASM + full website to GitHub Pages"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: playground-wasm-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  WASM_SRC: >-
+    src/main.c
+    src/lexer.c
+    src/parser.c
+    src/compiler.c
+    src/codegen.c
+    src/codegen_x64.c
+    src/runtime.c
+  WASM_FLAGS: >-
+    -std=c11 -O3 -Iinclude
+    -s WASM=1
+    -s MODULARIZE=1
+    -s EXPORT_ES6=1
+    -s EXPORT_NAME=createLovelangModule
+    -s FORCE_FILESYSTEM=1
+    -s NO_EXIT_RUNTIME=1
+    -s ALLOW_MEMORY_GROWTH=1
+    -s EXPORTED_FUNCTIONS='["_main"]'
+    -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap","FS","callMain"]'
+
+jobs:
+  # ── Always: build WASM and upload as artifact ───────────────────────────────
+  build-wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: "3.1.64"
+
+      - name: Build Lovelang WebAssembly runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p web/dist
+          emcc ${{ env.WASM_FLAGS }} ${{ env.WASM_SRC }} \
+            -o web/dist/lovelang.js
+          echo "WASM build complete:"
+          ls -lh web/dist/
+
+      - name: Upload WASM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasm-playground
+          path: web/dist
+          retention-days: 7
+
+  # ── Optional: deploy full website with updated WASM ─────────────────────────
+  deploy-pages:
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy == 'true' }}
+    needs: build-wasm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download WASM artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: wasm-playground
+          path: web/dist
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

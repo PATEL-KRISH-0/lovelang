@@ -1,0 +1,155 @@
+baby ignore karo ═══════════════════════════════════════════════════════════════
+baby ignore karo  Example 26 — All Features Showcase
+baby ignore karo  A grand tour of every major Lovelang feature in one place.
+baby ignore karo  Run: lovelang examples/showcase/26-all-features.love
+baby ignore karo  Native: lovelang examples/showcase/26-all-features.love --native --out ./build/showcase
+baby ignore karo ═══════════════════════════════════════════════════════════════
+
+~~ ── 1. Variables ──
+baby bolo na "══ 1. Variables ══"
+
+yaad score hai 0
+vada author hai "patel krish"
+baby yaad rakho version hai "1.0.0"
+yaad_karo nickname hai "lovecoder"
+
+score hai score milan 42
+bolo author milan " v" milan version
+bolo "score: " milan to_text(score)
+bolo "nick: " milan nickname
+
+~~ ── 2. Types ──
+baby bolo naa "══ 2. Types ══"
+
+yaad num hai 99
+yaad flt hai 3.14
+yaad str hai "pyaar"
+yaad flag hai sach
+yaad empty hai null
+
+bolo type_of(num)
+bolo type_of(flt)
+bolo type_of(str)
+bolo type_of(flag)
+bolo type_of(empty)
+
+~~ ── 3. Operators ──
+baby bolo na "══ 3. Operators ══"
+
+yaad a hai 10
+yaad b hai 3
+bolo to_text(a) milan " milan "  milan to_text(b) milan " = " milan to_text(a milan b)
+bolo to_text(a) milan " doori "  milan to_text(b) milan " = " milan to_text(a doori b)
+bolo to_text(a) milan " intense " milan to_text(b) milan " = " milan to_text(a intense b)
+bolo to_text(a) milan " divide " milan to_text(b) milan " = " milan to_text(a divide b)
+bolo to_text(a) milan " baaki "  milan to_text(b) milan " = " milan to_text(a baaki b)
+
+~~ ── 4. Conditionals ──
+baby bolo na "══ 4. Conditionals ══"
+
+agar score bada hai 40 toh
+  bolo "score is positive 🎯"
+warna
+  bolo "score is low"
+bas itna hi
+
+sun na agar flag toh bolo "flag is sach" warna bolo "flag is jhooth"
+
+~~ ── 5. Loops ──
+baby bolo na "══ 5. Loops ══"
+
+yaad i hai 1
+intezaar i chhota ya barabar hai 5 tab tak
+  baby bolo na to_text(i)
+  i hai i milan 1
+bas itna hi
+
+~~ ── 6. Break / Continue ──
+baby bolo na "══ 6. Break/Continue ══"
+
+yaad k hai 0
+intezaar k chhota hai 10 tab tak
+  agar k barabar hai 5 toh
+    bas_karo
+  bas itna hi
+  agar k intense 2 barabar hai 0 toh
+    k hai k milan 1
+    aage_bado
+  bas itna hi
+  baby bolo na to_text(k)
+  k hai k milan 1
+bas itna hi
+
+~~ ── 7. Functions ──
+baby bolo na "══ 7. Functions ══"
+
+dhadkan greet(name, emoji = "💌") {
+  bolo "salam, " milan name milan " " milan emoji
+  ehsaas sach
+}
+
+greet("Laila")
+greet("Ranjha", "🌹")
+
+dhadkan square(n) {
+  ehsaas n intense n
+}
+bolo "square(9) = " milan to_text(square(9))
+
+~~ ── 8. Collections ──
+baby bolo na "══ 8. Collections ══"
+
+yaad feelings hai list_nayi()
+list_daal(feelings, "pyaar")
+list_daal(feelings, "dard")
+list_daal(feelings, "khushi")
+bolo "feelings list:"
+bolo lambai(feelings)
+bolo list_lao(feelings, 0)
+
+yaad info hai map_naya()
+map_set(info, "lang", "Lovelang")
+map_set(info, "version", "1.0.0")
+bolo map_get(info, "lang") milan " " milan map_get(info, "version")
+
+~~ ── 9. Strings ──
+baby bolo na "══ 9. Strings ══"
+
+yaad s hai "  Dil Se  "
+bolo lafz_trim(s)
+bolo lafz_upper(lafz_trim(s))
+bolo lafz_contains(s, "Dil")
+yaad parts hai lafz_split("a,b,c", ",")
+bolo lambai(parts)
+bolo lafz_join(parts, " + ")
+
+~~ ── 10. Math ──
+baby bolo na "══ 10. Math ══"
+
+bolo abs(-7)
+bolo max_val(3, 9)
+bolo min_val(3, 9)
+bolo pow_val(2, 8)
+bolo sqrt_val(81)
+bolo clamp_val(150, 0, 100)
+
+~~ ── 11. Random / Time ──
+baby bolo na "══ 11. Random / Time ══"
+
+yaad lucky hai kismat(1, 10)
+bolo "lucky number: " milan to_text(lucky)
+yaad ts hai abhi_time()
+bolo "unix time: " milan to_text(ts)
+
+~~ ── 12. Type Conversion ──
+baby bolo na "══ 12. Conversion ══"
+
+bolo to_text(42)
+bolo to_int("17")
+bolo to_bool("yes")
+bolo to_float("3.14")
+
+~~ ── Done ──
+baby bolo naa "══ all features check! ❤️ ══"
+
+love you baby byeee

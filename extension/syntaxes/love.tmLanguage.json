@@ -1,0 +1,287 @@
+{
+  "scopeName": "source.lovelang",
+  "name": "Lovelang",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#booleans" },
+    { "include": "#multiWordPhrases" },
+    { "include": "#functionDeclaration" },
+    { "include": "#festivalDeclaration" },
+    { "include": "#declarationStatement" },
+    { "include": "#controlKeywords" },
+    { "include": "#printKeywords" },
+    { "include": "#builtinCalls" },
+    { "include": "#wordOperators" },
+    { "include": "#symbolOperators" },
+    { "include": "#assignmentStatement" },
+    { "include": "#functionCall" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.lovelang",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.line.hash.lovelang",
+          "match": "#.*$"
+        },
+        {
+          "name": "comment.line.double-tilde.lovelang",
+          "match": "~~.*$"
+        },
+        {
+          "name": "comment.line.baby-ignore-karo.lovelang",
+          "match": "(?i:^\\s*baby\\s+ignore\\s+karo\\b.*$)"
+        },
+        {
+          "name": "comment.block.lovelang",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.lovelang",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.lovelang",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.lovelang",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.lovelang",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.lovelang",
+          "match": "\\b-?[0-9]+\\.[0-9]+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.lovelang",
+          "match": "\\b-?[0-9]+\\b"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.lovelang",
+          "match": "(?i:\\b(sach|jhooth|null)\\b)"
+        }
+      ]
+    },
+    "multiWordPhrases": {
+      "comment": "Multi-word keywords and phrases — must come before single-word rules",
+      "patterns": [
+        {
+          "name": "keyword.control.block-end.lovelang",
+          "match": "(?i:\\bbas\\s+itna\\s+hi\\b)"
+        },
+        {
+          "name": "keyword.control.loop.lovelang",
+          "match": "(?i:\\btab\\s+tak\\b)"
+        },
+        {
+          "name": "keyword.control.one-liner.lovelang",
+          "match": "(?i:\\bsun\\s+na\\s+agar\\b)"
+        },
+        {
+          "name": "keyword.control.else-if.lovelang",
+          "match": "(?i:\\bwarna\\s+agar\\b)"
+        },
+        {
+          "name": "support.function.output.lovelang",
+          "match": "(?i:\\bbaby\\s+bo+lo\\s+naa?\\b)"
+        },
+        {
+          "name": "storage.type.lovelang",
+          "match": "(?i:\\bbaby\\s+ya+a?d\\s+rakho\\b)"
+        },
+        {
+          "name": "storage.type.lovelang",
+          "match": "(?i:\\byaad\\s+karo\\b)"
+        },
+        {
+          "name": "keyword.control.exit.lovelang",
+          "match": "(?i:\\blove\\s+you\\s+baby\\s+bye+e*\\.*)\\b"
+        },
+        {
+          "name": "support.function.input.lovelang",
+          "match": "(?i:\\bdil\\s+se\\s+pucho\\b)"
+        },
+        {
+          "name": "keyword.other.human.lovelang",
+          "match": "(?i:\\bthoda\\s+ruko\\b)"
+        },
+        {
+          "name": "keyword.operator.comparison.word.lovelang",
+          "match": "(?i:\\bchhota\\s+ya\\s+barabar\\s+hai\\b)"
+        },
+        {
+          "name": "keyword.operator.comparison.word.lovelang",
+          "match": "(?i:\\bbada\\s+ya\\s+barabar\\s+hai\\b)"
+        },
+        {
+          "name": "keyword.operator.comparison.word.lovelang",
+          "match": "(?i:\\bbarabar\\s+nahi\\b)"
+        },
+        {
+          "name": "keyword.operator.comparison.word.lovelang",
+          "match": "(?i:\\bbarabar\\s+hai\\b)"
+        },
+        {
+          "name": "keyword.operator.comparison.word.lovelang",
+          "match": "(?i:\\b(same\\s+hai|equal\\s+hai|alag\\s+hai|chhota\\s+hai|bada\\s+hai)\\b)"
+        }
+      ]
+    },
+    "functionDeclaration": {
+      "patterns": [
+        {
+          "name": "meta.function.declaration.lovelang",
+          "match": "(?i:\\b(dhadkan)\\b\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()([^)]*)(\\)))",
+          "captures": {
+            "1": { "name": "keyword.control.function.lovelang" },
+            "2": { "name": "entity.name.function.lovelang" },
+            "3": { "name": "punctuation.section.parameters.begin.lovelang" },
+            "4": { "name": "variable.parameter.lovelang" },
+            "5": { "name": "punctuation.section.parameters.end.lovelang" }
+          }
+        }
+      ]
+    },
+    "festivalDeclaration": {
+      "patterns": [
+        {
+          "name": "meta.event.declaration.festival.lovelang",
+          "match": "(?i:\\b(festival)\\b\\s+([A-Za-z_][A-Za-z0-9_]*|\"[^\"]*\"|'[^']*'))",
+          "captures": {
+            "1": { "name": "keyword.control.event.lovelang" },
+            "2": { "name": "entity.name.event.lovelang" }
+          }
+        }
+      ]
+    },
+    "declarationStatement": {
+      "patterns": [
+        {
+          "name": "meta.variable.declaration.lovelang",
+          "match": "(?i:\\b(yaad|yaad_karo|vada)\\b\\s+([A-Za-z_][A-Za-z0-9_]*))",
+          "captures": {
+            "1": { "name": "storage.type.lovelang" },
+            "2": { "name": "variable.other.definition.lovelang" }
+          }
+        }
+      ]
+    },
+    "controlKeywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.lovelang",
+          "match": "(?i:\\b(agar|bewafa|ye_karo|vo_karo|jabtak|intezaar|ehsaas|import|export|toh|warna)\\b)"
+        },
+        {
+          "name": "keyword.control.exit.lovelang",
+          "match": "(?i:\\b(love_byeee|love_you_baby_byeee)\\s*\\(\\s*\\))"
+        },
+        {
+          "name": "keyword.control.loop-jump.lovelang",
+          "match": "(?i:\\b(aage_bado|bas_karo)\\b)"
+        }
+      ]
+    },
+    "printKeywords": {
+      "patterns": [
+        {
+          "name": "support.function.output.lovelang",
+          "match": "(?i:\\b(bolo|typing)\\b)"
+        }
+      ]
+    },
+    "builtinCalls": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.lovelang",
+          "match": "(?i:\\b(dil_se_pucho|input|kismat|lambai|lafz_len|len|type_of|kya_type|to_text|text_banao|to_int|int_banao|to_bool|bool_banao|abs|mutlak|max|bada_wala|min|chhota_wala|pow|taaqat|sqrt|jadoo|clamp|list_nayi|pyaar_list|list_daal|pyaar_daal|list_nikaal|list_lao|list_set|map_naya|raaz_map|map_set|map_get|map_has|map_keys|lafz_trim|lafz_lower|lafz_upper|lafz_contains|lafz_replace|lafz_split|lafz_join|dil_khol_ke_padho|file_padho|ishq_likhdo|file_likho|ishq_joddo|file_jodo|raasta_hai_kya|file_hai_kya|abhi_time|thoda_ruko|gc_karo|memory_saaf_karo|pucho)\\b)"
+        }
+      ]
+    },
+    "wordOperators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.word.lovelang",
+          "match": "(?i:\\b(milan|doori|intense|divide)\\b)"
+        },
+        {
+          "name": "keyword.operator.logical.word.lovelang",
+          "match": "(?i:\\b(aur|ya|nahi)\\b)"
+        }
+      ]
+    },
+    "symbolOperators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.symbolic.lovelang",
+          "match": "==|!=|<=|>=|&&|\\|\\||[=+\\-*/%<>!]"
+        },
+        {
+          "name": "punctuation.section.block.lovelang",
+          "match": "[{}()]"
+        },
+        {
+          "name": "punctuation.separator.lovelang",
+          "match": "[,;]"
+        }
+      ]
+    },
+    "assignmentStatement": {
+      "patterns": [
+        {
+          "name": "meta.assignment.lovelang",
+          "match": "(?i:\\b([A-Za-z_][A-Za-z0-9_]*)\\b\\s*(=|hai\\b))",
+          "captures": {
+            "1": { "name": "variable.other.lovelang" },
+            "2": { "name": "keyword.operator.assignment.lovelang" }
+          }
+        }
+      ]
+    },
+    "functionCall": {
+      "patterns": [
+        {
+          "name": "entity.name.function.call.lovelang",
+          "match": "(?i:\\b(?!agar\\b|bewafa\\b|jabtak\\b|intezaar\\b|dhadkan\\b|festival\\b|import\\b|export\\b|ehsaas\\b)([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\())"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.lovelang",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

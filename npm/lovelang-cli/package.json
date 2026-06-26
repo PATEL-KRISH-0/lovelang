@@ -1,0 +1,48 @@
+{
+  "name": "lovelang-cli",
+  "version": "1.1.0",
+  "description": "Cross-platform CLI wrapper for the Lovelang programming language. Automatically downloads the correct native binary from GitHub releases.",
+  "license": "MIT",
+  "homepage": "https://github.com/PATEL-KRISH-0/lovelang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PATEL-KRISH-0/lovelang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PATEL-KRISH-0/lovelang/issues"
+  },
+  "keywords": [
+    "lovelang",
+    "love",
+    "hindi",
+    "urdu",
+    "romantic",
+    "desi",
+    "natural language",
+    "programming language",
+    "interpreter",
+    "compiler",
+    "arm64",
+    "x86",
+    "cli",
+    "runtime"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "bin": {
+    "lovelang": "./bin/lovelang.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "scripts/postinstall.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "clean": "node scripts/clean.js",
+    "test": "node --test test/*.test.js"
+  }
+}

@@ -1,0 +1,78 @@
+name: deploy-website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "web/**"
+      - "src/**"
+      - "include/**"
+      - ".github/workflows/deploy-website.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-website-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  WASM_SRC: >-
+    src/main.c
+    src/lexer.c
+    src/parser.c
+    src/compiler.c
+    src/codegen.c
+    src/codegen_x64.c
+    src/runtime.c
+  WASM_FLAGS: >-
+    -std=c11 -O3 -Iinclude
+    -s WASM=1
+    -s MODULARIZE=1
+    -s EXPORT_ES6=1
+    -s EXPORT_NAME=createLovelangModule
+    -s FORCE_FILESYSTEM=1
+    -s NO_EXIT_RUNTIME=1
+    -s ALLOW_MEMORY_GROWTH=1
+    -s EXPORTED_FUNCTIONS='["_main"]'
+    -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap","FS","callMain"]'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: "3.1.64"
+
+      - name: Build Lovelang WebAssembly runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p web/dist
+          emcc ${{ env.WASM_FLAGS }} ${{ env.WASM_SRC }} \
+            -o web/dist/lovelang.js
+          echo "WASM build complete:"
+          ls -lh web/dist/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

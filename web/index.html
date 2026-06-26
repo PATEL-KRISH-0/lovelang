@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lovelang — Code with Feelings</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Custom cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Animated background canvas -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="stars"></div>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <div class="heart"><i class="ri-heart-fill logo-icon"></i></div>
+            Lovelang
+        </a>
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="ri-menu-line"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#syntax">Syntax</a></li>
+            <li><a href="#extension">Extension</a></li>
+            <li><a href="playground.html">Playground</a></li>
+            <li><a href="docs.html">Docs</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="docs.html" class="btn-ghost">Documentation</a>
+            <a href="https://github.com/PATEL-KRISH-0/lovelang" class="btn-primary"><i class="ri-github-fill"></i> GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-badge"><i class="ri-hearts-fill"></i> v1.0.0 — Native Compile · VS Code Extension · npm</div>
+        <h1 class="hero-title">
+            Code with<br>
+            <span class="line2">Feelings. ❤️</span>
+        </h1>
+        <p class="hero-sub">A C-based interpreted language where programming speaks in desi romance. Write code like you
+            mean it — with <em>yaad</em>, <em>vada</em>, <em>dhadkan</em>, and <em>love.</em></p>
+        <div class="hero-actions">
+            <a href="docs.html" class="btn-hero"><i class="ri-book-open-line"></i> Read the Docs</a>
+            <a href="playground.html" class="btn-hero-ghost"><i class="ri-flask-line"></i> Try Playground</a>
+            <a href="https://github.com/PATEL-KRISH-0/lovelang" class="btn-hero-ghost"><i class="ri-github-fill"></i> View on
+                GitHub</a>
+        </div>
+        <p class="hero-note">Free & open source · Works on macOS, Linux, Windows</p>
+    </section>
+
+    <!-- Terminal -->
+    <div class="terminal-strip">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <div class="t-dot r"></div>
+                <div class="t-dot y"></div>
+                <div class="t-dot g"></div>
+                <span class="t-label">lovelang — hello.love</span>
+                <span class="t-online">online</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="t-comment">// Your first Lovelang program</span></div>
+                <div><span class="t-kw">yaad</span> name <span class="t-kw">hai</span> <span class="t-str">"jaan"</span>
+                </div>
+                <div><span class="t-kw">vada</span> promise <span class="t-kw">hai</span> <span
+                        class="t-str">"forever"</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-fn">baby bolo naa</span> <span class="t-str">"hello, "</span> milan name</div>
+                <div><span class="t-kw">agar</span> name <span class="t-kw">barabar hai</span> <span
+                        class="t-str">"jaan"</span> <span class="t-kw">toh</span></div>
+                <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"aagaye tum 🫶"</span></div>
+                <div><span class="t-kw">warna</span></div>
+                <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"offline :(</span></div>
+                <div><span class="t-kw">bas itna hi</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-kw">love you baby byeee</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-out">» hello, jaan</span></div>
+                <div><span class="t-out">» aagaye tum 🫶</span></div>
+                <div><span class="t-out">» ❤️ byeee...</span></div>
+                <div><span class="t-prompt">$</span> <span class="cursor"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Start -->
+    <section class="quickstart" id="quickstart">
+        <div class="section-header">Quick Start</div>
+        <h2 class="section-title">Up & Running in <span>60 Seconds</span></h2>
+        <p class="section-desc">Install from npm and run in seconds. If the binary is missing, Lovelang auto-downloads
+            it on first run.</p>
+
+        <div class="qs-grid">
+            <div>
+                <div class="install-box">
+                    <div class="install-tabs" id="install-tabs">
+                        <button type="button" class="i-tab active" data-os="unix">macOS / Linux</button>
+                        <button type="button" class="i-tab" data-os="windows">Windows</button>
+                    </div>
+                    <div class="install-code" id="install-code"></div>
+                    <button class="copy-btn" id="copy-install-btn" type="button">
+                        <i class="ri-file-copy-line"></i> Copy commands
+                    </button>
+                </div>
+            </div>
+            <div class="code-preview">
+                <div class="code-preview-bar">
+                    <div class="t-dot r"></div>
+                    <div class="t-dot y"></div>
+                    <div class="t-dot g"></div>
+                    <span class="filename">examples/01-romantic-hello.love</span>
+                </div>
+                <div class="code-preview-body">
+                    <div><span class="t-comment">~~ romantic greeting</span></div>
+                    <div><span class="t-kw">yaad</span> i <span class="t-kw">hai</span> <span class="t-num">0</span>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-fn">dhadkan</span> greet(name) {</div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"tum aaye 💌"</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> name</div>
+                    <div>&nbsp;&nbsp;<span class="t-kw">ehsaas</span> <span class="t-kw">sach</span></div>
+                    <div>}</div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-kw">intezaar</span> i <span class="t-kw">chhota hai</span> <span
+                            class="t-num">3</span> <span class="t-kw">tab tak</span></div>
+                    <div>&nbsp;&nbsp;greet(<span class="t-str">"jaan"</span>)</div>
+                    <div>&nbsp;&nbsp;i <span class="t-kw">hai</span> i <span class="t-kw">milan</span> <span
+                            class="t-num">1</span></div>
+                    <div><span class="t-kw">bas itna hi</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-kw">love you baby byeee</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-header">What It Does</div>
+        <h2 class="section-title">Features Built with <span>Pyaar</span></h2>
+        <p class="section-desc">Everything you need to write beautiful, emotionally-aware programs.</p>
+
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-code-s-slash-line"></i></div>
+                <div class="feat-title">Desi Syntax</div>
+                <div class="feat-desc">Write code using Hinglish-inspired keywords like <code
+                        style="color:var(--red2);font-family:monospace">yaad</code>, <code
+                        style="color:var(--red2);font-family:monospace">vada</code>, and <code
+                        style="color:var(--red2);font-family:monospace">dhadkan</code>. Reads like a love letter, runs
+                    like C.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-heart-pulse-line"></i></div>
+                <div class="feat-title">Human-Mode Phrases</div>
+                <div class="feat-desc">Type natural phrases like <code
+                        style="color:var(--red2);font-family:monospace">baby bolo naa</code> and <code
+                        style="color:var(--red2);font-family:monospace">love you baby byeee</code> — the preprocessor
+                    handles normalization before parsing.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-terminal-box-line"></i></div>
+                <div class="feat-title">CLI with Moods</div>
+                <div class="feat-desc">Run programs in <code
+                        style="color:var(--red2);font-family:monospace">romantic</code>, <code
+                        style="color:var(--red2);font-family:monospace">toxic</code>, or <code
+                        style="color:var(--red2);font-family:monospace">shayari</code> mode. Output tone changes based
+                    on the mood flag.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-puzzle-line"></i></div>
+                <div class="feat-title">VS Code Extension</div>
+                <div class="feat-desc">Full syntax highlighting, IntelliSense, code snippets, hover docs, and a run
+                    button right in the editor. Install the <code
+                        style="color:var(--red2);font-family:monospace">.vsix</code> and you're set.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-braces-line"></i></div>
+                <div class="feat-title">Word Operators</div>
+                <div class="feat-desc">Use <code style="color:var(--red2);font-family:monospace">milan</code> (add),
+                    <code style="color:var(--red2);font-family:monospace">doori</code> (subtract), <code
+                        style="color:var(--red2);font-family:monospace">barabar hai</code> (equals). Math has never felt
+                    this romantic.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="ri-git-branch-line"></i></div>
+                <div class="feat-title">Open Source</div>
+                <div class="feat-desc">Built in pure C with a clean pipeline: preprocess → lex → parse → execute. MIT
+                    licensed. Fork it, extend it, make it yours.</div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Modes -->
+    <section class="modes" id="modes">
+        <div class="section-header">Output Modes</div>
+        <h2 class="section-title">Pick Your <span>Vibe</span></h2>
+        <p class="section-desc">The same program can run in three completely different emotional modes. Your code, your
+            feelings.</p>
+
+        <div class="modes-grid">
+            <div class="mode-card">
+                <span class="mode-emoji">🌹</span>
+                <div class="mode-name">Romantic</div>
+                <div class="mode-flag">--mode romantic</div>
+                <div class="mode-desc">Warm, loving output messages. Program goodbye says <em>"dil se bidaai..."</em> —
+                    from the heart.</div>
+            </div>
+            <div class="mode-card">
+                <span class="mode-emoji">🔥</span>
+                <div class="mode-name">Toxic</div>
+                <div class="mode-flag">--mode toxic</div>
+                <div class="mode-desc">Dramatic, passionate output. Every farewell hits like a breakup song. Intense but
+                    cathartic.</div>
+            </div>
+            <div class="mode-card">
+                <span class="mode-emoji">🎭</span>
+                <div class="mode-name">Shayari</div>
+                <div class="mode-flag">--mode shayari</div>
+                <div class="mode-desc">Poetic Urdu-inspired tone. Your terminal becomes a mushaira. Code that sounds
+                    like verse.</div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Syntax -->
+    <section class="syntax" id="syntax">
+        <div class="section-header">Syntax Showcase</div>
+        <h2 class="section-title">Beauty in <span>Every Line</span></h2>
+        <p class="section-desc">Lovelang supports both natural desi phrasing and structured core syntax — mix them
+            freely.</p>
+
+        <div class="syntax-grid">
+            <div class="syn-card">
+                <div class="syn-label">Variables & Constants</div>
+                <div class="syn-code">
+                    <div><span class="t-comment">// Mutable variable</span></div>
+                    <div><span class="t-kw">yaad</span> count <span class="t-kw">hai</span> <span class="t-num">0</span>
+                    </div>
+                    <div><span class="t-kw">yaad_karo</span> score <span class="t-kw">hai</span> <span
+                            class="t-num">10</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Immutable constant</span></div>
+                    <div><span class="t-kw">vada</span> name <span class="t-kw">hai</span> <span
+                            class="t-str">"forever"</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Human-mode alias</span></div>
+                    <div><span class="t-fn">baby yaad rakho</span> badge <span class="t-kw">hai</span> <span
+                            class="t-str">"gold"</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Assignment</span></div>
+                    <div>count <span class="t-kw">hai</span> count <span class="t-kw">milan</span> <span
+                            class="t-num">1</span></div>
+                </div>
+            </div>
+            <div class="syn-card">
+                <div class="syn-label">Conditionals</div>
+                <div class="syn-code">
+                    <div><span class="t-comment">// Natural style (preferred)</span></div>
+                    <div><span class="t-kw">agar</span> score <span class="t-kw">bada hai</span> <span
+                            class="t-num">50</span> <span class="t-kw">toh</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"winner 🏆"</span></div>
+                    <div><span class="t-kw">warna agar</span> score <span class="t-kw">bada hai</span> <span
+                            class="t-num">0</span> <span class="t-kw">toh</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"thoda aur"</span></div>
+                    <div><span class="t-kw">warna</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"next time..."</span></div>
+                    <div><span class="t-kw">bas itna hi</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// One-liner</span></div>
+                    <div><span class="t-fn">sun na agar</span> ok <span class="t-kw">toh</span> <span
+                            class="t-fn">bolo</span> <span class="t-str">"yes"</span> <span class="t-kw">warna</span>
+                        <span class="t-fn">bolo</span> <span class="t-str">"no"</span></div>
+                </div>
+            </div>
+            <div class="syn-card">
+                <div class="syn-label">Functions</div>
+                <div class="syn-code">
+                    <div><span class="t-comment">// Define with dhadkan</span></div>
+                    <div><span class="t-fn">dhadkan</span> greet(name) {</div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"tum aaye: "</span> milan name
+                    </div>
+                    <div>&nbsp;&nbsp;<span class="t-kw">ehsaas</span> <span class="t-kw">sach</span></div>
+                    <div>}</div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Call it</span></div>
+                    <div><span class="t-kw">yaad</span> ok <span class="t-kw">hai</span> greet(<span
+                            class="t-str">"jaan"</span>)</div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Festival block</span></div>
+                    <div><span class="t-fn">festival</span> diwali {</div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> <span class="t-str">"✨ lights on"</span></div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="syn-card">
+                <div class="syn-label">Loops & Stop</div>
+                <div class="syn-code">
+                    <div><span class="t-comment">// intezaar = wait/while</span></div>
+                    <div><span class="t-kw">yaad</span> i <span class="t-kw">hai</span> <span class="t-num">0</span>
+                    </div>
+                    <div><span class="t-kw">intezaar</span> i <span class="t-kw">chhota hai</span> <span
+                            class="t-num">3</span> <span class="t-kw">tab tak</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-fn">bolo</span> i</div>
+                    <div>&nbsp;&nbsp;i <span class="t-kw">hai</span> i <span class="t-kw">milan</span> <span
+                            class="t-num">1</span></div>
+                    <div><span class="t-kw">bas itna hi</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="t-comment">// Stop execution</span></div>
+                    <div><span class="t-kw">love you baby byeee</span></div>
+                    <div><span class="t-comment">// also: love_byeee()</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Extension -->
+    <section class="extension" id="extension">
+        <div style="max-width:1100px;margin:0 auto;padding:0;">
+            <div class="section-header">VS Code Extension</div>
+            <h2 class="section-title">Love Lang Tools <span>for VS Code</span></h2>
+            <p class="section-desc">A complete developer experience for writing `.love` files, right inside your editor.
+            </p>
+
+            <div class="ext-grid">
+                <div>
+                    <div class="ext-features">
+                        <div class="ext-feat">
+                            <i class="ri-palette-line"></i>
+                            <div>
+                                <div class="ext-feat-title">Syntax Highlighting</div>
+                                <div class="ext-feat-desc">TextMate grammar with fallback decoration highlighting. Every
+                                    keyword, string, and operator is beautifully colored.</div>
+                            </div>
+                        </div>
+                        <div class="ext-feat">
+                            <i class="ri-lightbulb-line"></i>
+                            <div>
+                                <div class="ext-feat-title">IntelliSense & Snippets</div>
+                                <div class="ext-feat-desc">Autocomplete for all keywords, human-mode phrases, and
+                                    function patterns. Type <code>dhadkan</code> and let the extension do the rest.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ext-feat">
+                            <i class="ri-cursor-line"></i>
+                            <div>
+                                <div class="ext-feat-title">Hover Documentation</div>
+                                <div class="ext-feat-desc">Hover over any keyword to get its meaning, aliases, and usage
+                                    examples inline.</div>
+                            </div>
+                        </div>
+                        <div class="ext-feat">
+                            <i class="ri-play-circle-line"></i>
+                            <div>
+                                <div class="ext-feat-title">Run from Editor</div>
+                                <div class="ext-feat-desc">Run Current File button in the editor title. Supports mode
+                                    flags, token debug, and custom binary paths via the Settings webview.</div>
+                            </div>
+                        </div>
+                        <div class="ext-feat">
+                            <i class="ri-settings-4-line"></i>
+                            <div>
+                                <div class="ext-feat-title">Visual Settings Panel</div>
+                                <div class="ext-feat-desc">A built-in webview settings panel for configuring run mode,
+                                    flags, paths, and more — no JSON editing needed.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ext-install-box">
+                        <h3><i class="ri-puzzle-2-line" style="color:var(--red2);margin-right:8px;"></i> Installing the
+                            Extension</h3>
+                        <div class="ext-step">
+                            <div class="step-num">1</div>
+                            <div class="step-text"><strong>Download the VSIX</strong> — grab
+                                <code>love-lang-tools-1.0.0.vsix</code> from the <a
+                                    href="https://github.com/PATEL-KRISH-0/lovelang/releases"
+                                    style="color:var(--red2)">release assets</a>.</div>
+                        </div>
+                        <div class="ext-step">
+                            <div class="step-num">2</div>
+                            <div class="step-text"><strong>Install via
+                                    CLI:</strong><br><code>code --install-extension love-lang-tools-1.0.0.vsix --force</code>
+                            </div>
+                        </div>
+                        <div class="ext-step">
+                            <div class="step-num">3</div>
+                            <div class="step-text"><strong>Or install via UI:</strong> Extensions panel → ··· menu →
+                                <em>Install from VSIX...</em></div>
+                        </div>
+                        <div class="ext-step">
+                            <div class="step-num">4</div>
+                            <div class="step-text"><strong>Open any <code>.love</code> file</strong> — language mode
+                                auto-switches to Lovelang. Hit the ▶ button to run.</div>
+                        </div>
+                        <div class="ext-step">
+                            <div class="step-num">5</div>
+                            <div class="step-text"><strong>Configure:</strong> Run <em>Lovelang: Settings</em> from the
+                                command palette to set your binary path and default mode.</div>
+                        </div>
+                        <div class="ext-badge">
+                            <i class="ri-code-box-line"></i> Language ID: <strong>lovelang</strong> · Extension:
+                            <strong>.love</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Tech Stack -->
+    <section class="techstack" id="techstack">
+        <div class="section-header">Tech Stack</div>
+        <h2 class="section-title">Built with <span>Heart & C</span></h2>
+        <p class="section-desc">Simple, fast, portable. No runtime deps, no JVM, no nonsense.</p>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <span class="tech-icon c-blue"><i class="ri-cpu-line"></i></span>
+                <div class="tech-name">C11</div>
+                <div class="tech-role">Core runtime, lexer, parser, native codegen</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-orange"><i class="ri-hammer-line"></i></span>
+                <div class="tech-name">GNU Make</div>
+                <div class="tech-role">Build system</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-teal"><i class="ri-code-box-line"></i></span>
+                <div class="tech-name">VS Code API</div>
+                <div class="tech-role">Extension host (Node.js)</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-purple"><i class="ri-palette-line"></i></span>
+                <div class="tech-name">TextMate</div>
+                <div class="tech-role">Syntax grammar definitions</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-green"><i class="ri-global-line"></i></span>
+                <div class="tech-name">Cross-Platform</div>
+                <div class="tech-role">macOS, Linux, Windows</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-pink"><i class="ri-magic-line"></i></span>
+                <div class="tech-name">Preprocessor</div>
+                <div class="tech-role">Human-phrase normalization</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-yellow"><i class="ri-git-branch-line"></i></span>
+                <div class="tech-name">AST Engine</div>
+                <div class="tech-role">Tree-walk interpreter</div>
+            </div>
+            <div class="tech-card">
+                <span class="tech-icon c-red"><i class="ri-scales-3-line"></i></span>
+                <div class="tech-name">MIT License</div>
+                <div class="tech-role">Open source, use freely</div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">What People Say</div>
+        <h2 class="section-title">The <span>Feels</span> Are Real</h2>
+
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="testi-text">"I've never felt this emotionally connected to a compiler. When it said
+                    <em>byeee</em> I almost cried."</div>
+                <div class="testi-author">
+                    <div class="testi-av">RK</div>
+                    <div>
+                        <div class="testi-name">@rahul_codes</div>
+                        <div class="testi-handle">Backend dev, Bangalore</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-text">"My rubber duck now understands me better. I replaced it with <code
+                        style="color:var(--red2)">bolo</code> statements and honestly it's therapeutic."</div>
+                <div class="testi-author">
+                    <div class="testi-av">PJ</div>
+                    <div>
+                        <div class="testi-name">@priyajain_dev</div>
+                        <div class="testi-handle">Frontend, Mumbai</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-text">"Finally a language where my variable names mean something. <em>yaad</em> is so
+                    much better than <em>let x</em>."</div>
+                <div class="testi-author">
+                    <div class="testi-av">AS</div>
+                    <div>
+                        <div class="testi-name">@arjun_s</div>
+                        <div class="testi-handle">CS student, Delhi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="divider" />
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="section-header" style="justify-content:center;">Stay in the Loop</div>
+        <h2>Get Updates on New Features</h2>
+        <p>New syntax, modes, extension updates and desi dev wisdom. No spam, unsubscribe anytime.</p>
+        <div class="email-form">
+            <input type="email" placeholder="your@email.com" />
+            <button><i class="ri-send-plane-fill"></i> Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>❤️ Lovelang</h3>
+                <p>A C-based interpreted language where code speaks in feelings. Open source. Desi. Yours.</p>
+            </div>
+            <div class="footer-links-group">
+                <h4>Language</h4>
+                <ul class="footer-links">
+                    <li><a href="docs.html#syntax">Syntax Reference</a></li>
+                    <li><a href="docs.html#operators">Operators</a></li>
+                    <li><a href="docs.html#functions">Functions</a></li>
+                    <li><a href="docs.html#modes">Run Modes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-group">
+                <h4>Tooling</h4>
+                <ul class="footer-links">
+                    <li><a href="docs.html#extension">VS Code Extension</a></li>
+                    <li><a href="docs.html#cli">CLI Reference</a></li>
+                    <li><a href="docs.html#examples">Examples</a></li>
+                    <li><a href="docs.html#build">Building from Source</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-group">
+                <h4>Project</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/PATEL-KRISH-0/lovelang">GitHub</a></li>
+                    <li><a href="https://github.com/PATEL-KRISH-0/lovelang/blob/main/LICENSE">License (MIT)</a></li>
+                    <li><a href="https://github.com/PATEL-KRISH-0/lovelang/releases">Changelog</a></li>
+                    <li><a href="https://github.com/PATEL-KRISH-0/lovelang/issues">Contribute</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Built with ❤️ and C11 · Lovelang v1.0.0</span>
+            <div class="footer-social">
+                <a href="https://github.com/PATEL-KRISH-0/lovelang" class="social-btn" aria-label="GitHub"><i
+                        class="ri-github-fill"></i></a>
+                <a href="https://www.github.com/PATEL-KRISH-0" class="social-btn" aria-label="YouTube"><i
+                        class="ri-youtube-fill"></i></a>
+                <a href="playground.html" class="social-btn" aria-label="Playground"><i class="ri-flask-line"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        window.LOVELANG_VERSION = "1.0.0";
+    </script>
+    <script src="js/index.js"></script>
+    <script src="analytics.js"></script>
+
+
+
+</body>
+
+</html>

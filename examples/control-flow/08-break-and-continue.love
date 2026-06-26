@@ -1,0 +1,42 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 08 — Break and Continue
+baby ignore karo  aage_bado = continue (skip to next iteration)
+baby ignore karo  bas_karo   = break   (exit the loop entirely)
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Skip even numbers using aage_bado
+bolo "odd numbers from 1 to 10:"
+yaad i hai 1
+intezaar i chhota ya barabar hai 10 tab tak
+  agar i intense 2 barabar hai 0 toh
+    i hai i milan 1
+    aage_bado
+  bas itna hi
+  baby bolo na i
+  i hai i milan 1
+bas itna hi
+
+~~ Stop at first multiple of 7
+bolo "counting until multiple of 7:"
+yaad n hai 1
+intezaar n chhota ya barabar hai 100 tab tak
+  agar n intense 7 barabar hai 0 toh
+    baby bolo naa "found it:"
+    bolo n
+    bas_karo
+  bas itna hi
+  n hai n milan 1
+bas itna hi
+
+~~ Search for a value in range
+bolo "looking for 42:"
+yaad x hai 1
+intezaar x chhota ya barabar hai 50 tab tak
+  agar x barabar hai 42 toh
+    bolo "42 mil gaya 🎯"
+    bas_karo
+  bas itna hi
+  x hai x milan 1
+bas itna hi
+
+love you baby byeee

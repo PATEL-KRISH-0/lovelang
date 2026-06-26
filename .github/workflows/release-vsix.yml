@@ -1,0 +1,67 @@
+name: release-vsix
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to publish (example: v1.1.0)"
+        required: true
+        type: string
+
+concurrency:
+  group: release-vsix-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.tag }}
+
+jobs:
+  package-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install extension dependencies
+        working-directory: extension
+        run: npm install
+
+      - name: Verify extension script syntax
+        working-directory: extension
+        run: npm run check
+
+      - name: Build VSIX package
+        working-directory: extension
+        run: npm run package
+
+      - name: Collect VSIX files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp extension/*.vsix dist/
+          echo "VSIX artifacts:"
+          ls -lh dist/
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-vsix
+          path: dist/*.vsix
+
+      - name: Attach VSIX to GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          files: dist/*.vsix
+          fail_on_unmatched_files: true

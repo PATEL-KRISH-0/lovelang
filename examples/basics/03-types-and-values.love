@@ -1,0 +1,50 @@
+baby ignore karo ═══════════════════════════════════════════════════════
+baby ignore karo  Example 03 — Types and Values
+baby ignore karo  int, float, string, bool, null — all types explored.
+baby ignore karo ═══════════════════════════════════════════════════════
+
+~~ Integer
+yaad age hai 25
+baby bolo naa "age (int):"
+bolo age
+bolo type_of(age)
+
+~~ Float — only interpreter and native mode support this
+yaad temperature hai 36.6
+bolo "temperature (float):"
+bolo temperature
+bolo type_of(temperature)
+
+~~ String — use single or double quotes
+yaad name hai "Lovelang"
+yaad alias hai 'dil ki boli'
+bolo name milan " aka " milan alias
+bolo type_of(name)
+
+~~ Boolean — sach = true, jhooth = false
+yaad online hai sach
+yaad heartbroken hai jhooth
+bolo "online:"
+bolo online
+bolo "heartbroken:"
+bolo heartbroken
+bolo type_of(online)
+
+~~ Null
+yaad reply hai null
+bolo "reply:"
+bolo reply
+bolo type_of(reply)
+
+~~ Type conversion
+yaad num_str hai to_text(42)
+yaad str_num hai to_int("7")
+yaad bool_val hai to_bool("yes")
+
+bolo "42 as text: " milan num_str
+bolo "\"7\" as int:"
+bolo str_num
+bolo "\"yes\" as bool:"
+bolo bool_val
+
+love you baby byeee

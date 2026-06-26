@@ -1,0 +1,68 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 13 — Maps
+baby ignore karo  String-keyed hash maps — like a personal diary
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Create map — raaz_map is an alias too
+yaad profile hai map_naya()
+
+map_set(profile, "name", "Ranjha")
+map_set(profile, "age", 24)
+map_set(profile, "city", "Jhang")
+map_set(profile, "online", sach)
+map_set(profile, "last_seen", "2 min ago")
+
+bolo "name:"
+bolo map_get(profile, "name")
+
+bolo "age:"
+bolo map_get(profile, "age")
+
+bolo "city:"
+bolo map_get(profile, "city")
+
+~~ Check existence
+agar map_has(profile, "online") toh
+  baby bolo naa "online status found 💚"
+bas itna hi
+
+agar map_has(profile, "password") toh
+  bolo "has password"
+warna
+  bolo "no password field — safe 🔒"
+bas itna hi
+
+~~ Update a value
+map_set(profile, "last_seen", "just now")
+bolo "updated last_seen:"
+bolo map_get(profile, "last_seen")
+
+~~ Get all keys
+yaad keys hai map_keys(profile)
+bolo "all profile keys:"
+bolo lambai(keys)
+yaad ki hai 0
+intezaar ki chhota hai lambai(keys) tab tak
+  baby bolo na list_lao(keys, ki)
+  ki hai ki milan 1
+bas itna hi
+
+~~ Nested-style: map of maps (via separate maps)
+yaad contacts hai map_naya()
+
+yaad c1 hai map_naya()
+map_set(c1, "name", "Heer")
+map_set(c1, "phone", "9999")
+
+yaad c2 hai map_naya()
+map_set(c2, "name", "Laila")
+map_set(c2, "phone", "8888")
+
+map_set(contacts, "contact1", map_get(c1, "name"))
+map_set(contacts, "contact2", map_get(c2, "name"))
+
+bolo "contact list:"
+bolo map_get(contacts, "contact1")
+bolo map_get(contacts, "contact2")
+
+love you baby byeee

@@ -1,0 +1,30 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 10 — Default and Named Arguments
+baby ignore karo  Functions can have default values and named call syntax
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Default arguments — skipped params use defaults
+dhadkan confess(name, feeling = "love you", emoji = "❤️") {
+  baby bolo naa name milan " — " milan feeling milan " " milan emoji
+  ehsaas sach
+}
+
+~~ Positional
+confess("Laila")
+confess("Ranjha", "miss karta hoon")
+confess("Heer", "pyaar hai tumse", "🌹")
+
+~~ Named arguments — pass in any order by name
+confess("Majnu", emoji = "🔥", feeling = "pagal hoon tere liye")
+
+~~ Mix positional and named
+dhadkan format_score(name, score, label = "points", emoji = "⭐") {
+  bolo name milan " — " milan to_text(score) milan " " milan label milan " " milan emoji
+  ehsaas null
+}
+
+format_score("Arjun", 95)
+format_score("Priya", 87, "marks")
+format_score("Dev", 100, emoji = "🏆", label = "out of 100")
+
+love you baby byeee

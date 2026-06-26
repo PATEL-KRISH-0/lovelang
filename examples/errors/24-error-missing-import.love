@@ -1,0 +1,11 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 24 — Error: Missing Import
+baby ignore karo  Expected: runtime error — file not found
+baby ignore karo  This file SHOULD fail — used in error testing
+baby ignore karo ════════════════════════════════════════════════════════
+
+bolo "about to import a file that does not exist..."
+import "examples/errors/ghost-module-does-not-exist.love"
+bolo "this line should never print"
+
+love you baby byeee

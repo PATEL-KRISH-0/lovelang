@@ -1,0 +1,273 @@
+{
+  "Baby Ignore Karo Comment": {
+    "prefix": "ignore",
+    "body": [
+      "baby ignore karo ${1:explain this part}"
+    ],
+    "description": "Lovelang natural line comment"
+  },
+  "Symbol Comment": {
+    "prefix": "~~",
+    "body": [
+      "~~ ${1:quick note}"
+    ],
+    "description": "Lovelang symbol line comment"
+  },
+  "If Ye Karo Vo Karo": {
+    "prefix": "agar",
+    "body": [
+      "agar (${1:condition}) ye_karo {",
+      "  ${2:bolo \"then\";}",
+      "} vo_karo {",
+      "  ${3:bolo \"else\";}",
+      "}"
+    ],
+    "description": "Lovelang if/else block"
+  },
+  "Natural Agar Toh Warna": {
+    "prefix": "toh",
+    "body": [
+      "agar ${1:state barabar hai \"ignore\"} toh",
+      "  ${2:bolo \"reply nahi aaya\"}",
+      "warna",
+      "  ${3:bolo \"reply aa gaya\"}",
+      "bas itna hi"
+    ],
+    "description": "Lovelang natural language if/else block"
+  },
+  "Natural Warna Agar Chain": {
+    "prefix": "warna-agar",
+    "body": [
+      "agar ${1:state barabar hai \"ignore\"} toh",
+      "  ${2:bolo \"ignore\"}",
+      "warna agar ${3:state equal hai \"seen\"} toh",
+      "  ${4:bolo \"seen\"}",
+      "warna",
+      "  ${5:bolo \"done\"}",
+      "bas itna hi"
+    ],
+    "description": "Lovelang natural else-if chain"
+  },
+  "Sun Na Agar One-Liner": {
+    "prefix": "sun",
+    "body": [
+      "sun na agar ${1:state equal hai \"romantic\"} toh ${2:bolo \"i love you\"} warna ${3:bolo \"so ja\"}"
+    ],
+    "description": "Lovelang conversational one-line conditional"
+  },
+  "Jabtak Loop": {
+    "prefix": "jabtak",
+    "body": [
+      "jabtak (${1:condition}) ye_karo {",
+      "  ${2:bolo \"loop\";}",
+      "}"
+    ],
+    "description": "Lovelang while loop"
+  },
+  "Intezaar Natural Loop": {
+    "prefix": "intezaar",
+    "body": [
+      "intezaar ${1:i chhota hai 5} tab tak",
+      "  ${2:bolo \"waiting\"}",
+      "  ${3:i hai i milan 1}",
+      "bas itna hi"
+    ],
+    "description": "Lovelang natural language loop"
+  },
+  "Dhadkan Function": {
+    "prefix": "dhadkan",
+    "body": [
+      "dhadkan ${1:confess}(${2:name}) {",
+      "  ${3:bolo \"I love you\";}",
+      "  ehsaas ${4:sach};",
+      "}"
+    ],
+    "description": "Lovelang function declaration with ehsaas return"
+  },
+  "Festival Block": {
+    "prefix": "festival",
+    "body": [
+      "festival ${1:diwali} {",
+      "  ${2:bolo \"roshni\";}",
+      "}"
+    ],
+    "description": "Lovelang festival block"
+  },
+  "Baby Yad Rakho": {
+    "prefix": "baby_yad_rakho",
+    "body": [
+      "baby_yad_rakho ${1:piya} = \"${2:forever}\""
+    ],
+    "description": "Lovelang immutable alias (maps to vada)"
+  },
+  "Yaad Karo": {
+    "prefix": "yaad_karo",
+    "body": [
+      "yaad karo ${1:name} hai \"${2:remember}\""
+    ],
+    "description": "Lovelang natural declaration alias (maps to yaad_karo)"
+  },
+  "Baby Bolo Na": {
+    "prefix": "baby_bolo_na",
+    "body": [
+      "baby bolo na \"${1:i love you}\""
+    ],
+    "description": "Lovelang v4 expressive print alias"
+  },
+  "Baby Bolo Naa": {
+    "prefix": "baby_bolo_naa",
+    "body": [
+      "baby bolo naa \"${1:i love you}\""
+    ],
+    "description": "Lovelang expressive print alias variant"
+  },
+  "Dil Se Pucho Builtin": {
+    "prefix": "dil_se_pucho",
+    "body": [
+      "yaad ${1:name} hai dil_se_pucho(\"${2:> }\")"
+    ],
+    "description": "Read one line from stdin"
+  },
+  "Input Builtin Alias": {
+    "prefix": "input",
+    "body": [
+      "yaad ${1:name} hai input(\"${2:> }\")"
+    ],
+    "description": "Alias of dil_se_pucho"
+  },
+  "Pucho Phrase": {
+    "prefix": "pucho",
+    "body": [
+      "pucho ${1:\"> \"}"
+    ],
+    "description": "Natural phrase alias for dil_se_pucho"
+  },
+  "Dil Se Pucho Phrase": {
+    "prefix": "dil-se-pucho",
+    "body": [
+      "dil se pucho ${1:\"> \"}"
+    ],
+    "description": "Natural phrase alias for dil_se_pucho"
+  },
+  "Kismat Random": {
+    "prefix": "kismat",
+    "body": [
+      "yaad ${1:lucky} hai kismat(${2:1}, ${3:100})"
+    ],
+    "description": "Random integer in inclusive range"
+  },
+  "Lafz Len": {
+    "prefix": "lafz_len",
+    "body": [
+      "yaad ${1:length} hai lafz_len(${2:value})"
+    ],
+    "description": "String length helper"
+  },
+  "Abhi Time": {
+    "prefix": "abhi_time",
+    "body": [
+      "yaad ${1:now} hai abhi_time()"
+    ],
+    "description": "Current unix timestamp"
+  },
+  "Thoda Ruko Builtin": {
+    "prefix": "thoda_ruko",
+    "body": [
+      "thoda_ruko(${1:500})"
+    ],
+    "description": "Pause execution in milliseconds"
+  },
+  "Thoda Ruko Phrase": {
+    "prefix": "thoda-ruko",
+    "body": [
+      "thoda ruko ${1:500}"
+    ],
+    "description": "Natural phrase alias for thoda_ruko"
+  },
+  "Import Module": {
+    "prefix": "import",
+    "body": [
+      "import \"${1:modules/romantic_utils.love}\""
+    ],
+    "description": "Import module file via preprocessor"
+  },
+  "Export Function With Defaults": {
+    "prefix": "export-dhadkan",
+    "body": [
+      "export dhadkan ${1:greet}(${2:name}, ${3:mood} = \"${4:romantic}\") {",
+      "  ehsaas ${5:mood} milan \": \" milan ${2:name}",
+      "}"
+    ],
+    "description": "Exported function with default parameter"
+  },
+  "Named Argument Call": {
+    "prefix": "named-call",
+    "body": [
+      "${1:greet}(\"${2:patel krish}\", ${3:mood} = \"${4:shayari}\", ${5:punct} = \"${6:...}\")"
+    ],
+    "description": "Function call with named arguments"
+  },
+  "List Builtins": {
+    "prefix": "list-kit",
+    "body": [
+      "yaad ${1:items} hai list_nayi()",
+      "list_daal(${1:items}, ${2:\"patel krish\"})",
+      "list_set(${1:items}, ${3:0}, ${4:\"nivi\"})",
+      "bolo list_lao(${1:items}, ${3:0})",
+      "bolo list_nikaal(${1:items})"
+    ],
+    "description": "List create/add/get/set/pop helpers"
+  },
+  "Map Builtins": {
+    "prefix": "map-kit",
+    "body": [
+      "yaad ${1:box} hai map_naya()",
+      "map_set(${1:box}, \"${2:key}\", ${3:value})",
+      "bolo map_has(${1:box}, \"${2:key}\")",
+      "bolo map_get(${1:box}, \"${2:key}\")",
+      "yaad ${4:keys} hai map_keys(${1:box})"
+    ],
+    "description": "Map set/get/has/keys helpers"
+  },
+  "String Toolkit": {
+    "prefix": "lafz-kit",
+    "body": [
+      "bolo lafz_trim(${1:text})",
+      "bolo lafz_lower(${1:text})",
+      "bolo lafz_upper(${1:text})",
+      "bolo lafz_contains(${1:text}, ${2:\"needle\"})",
+      "bolo lafz_replace(${1:text}, ${3:\"from\"}, ${4:\"to\"})",
+      "yaad ${5:parts} hai lafz_split(${1:text}, ${6:\",\"})",
+      "bolo lafz_join(${5:parts}, ${7:\" | \"})"
+    ],
+    "description": "String trim/lower/upper/contains/replace/split/join"
+  },
+  "Filesystem Builtins": {
+    "prefix": "file-kit",
+    "body": [
+      "yaad ${1:path} hai \"${2:examples/test/note.txt}\"",
+      "ishq_likhdo(${1:path}, ${3:\"line1\"})",
+      "ishq_joddo(${1:path}, ${4:\"\\nline2\"})",
+      "bolo raasta_hai_kya(${1:path})",
+      "bolo dil_khol_ke_padho(${1:path})"
+    ],
+    "description": "File write/append/exists/read helpers"
+  },
+  "Type and Conversion Helpers": {
+    "prefix": "type-kit",
+    "body": [
+      "bolo type_of(${1:value})",
+      "bolo to_text(${1:value})",
+      "bolo to_int(${2:\"42\"})",
+      "bolo to_bool(${3:\"\"})"
+    ],
+    "description": "type_of, to_text, to_int, to_bool helpers"
+  },
+  "Love Byeee": {
+    "prefix": "byeee",
+    "body": [
+      "love you baby byeee"
+    ],
+    "description": "Lovelang v4 graceful program end phrase"
+  }
+}

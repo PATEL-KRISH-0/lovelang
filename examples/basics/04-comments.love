@@ -1,0 +1,26 @@
+baby ignore karo ═══════════════════════════════════════════════════════
+baby ignore karo  Example 04 — Comments
+baby ignore karo  All comment styles supported by Lovelang.
+baby ignore karo ═══════════════════════════════════════════════════════
+
+// single-line C style — familiar to coders
+
+# shell style — for the terminal lovers
+
+~~ wavy style — the most romantic of all
+
+baby ignore karo  natural language style — write like a human
+
+/* block comment
+   spans multiple lines
+   like a letter that never ends */
+
+bolo "comments don't affect output — see?"
+
+// you can comment at end of line too
+yaad dil hai "full"  // this variable holds a feeling
+
+~~ the value below is pure poetry
+bolo dil  ~~ prints "full"
+
+love you baby byeee

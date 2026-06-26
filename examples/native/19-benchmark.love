@@ -1,0 +1,33 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 19 — Native Benchmark
+baby ignore karo  Measures loop performance in native compile mode
+baby ignore karo  Interpret:  lovelang examples/native/19-benchmark.love
+baby ignore karo  Native:     lovelang examples/native/19-benchmark.love --native --out ./build/bench
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad start hai abhi_time()
+
+~~ Count to a million — in native mode this is near-instant
+yaad count hai 0
+yaad limit hai 1000000
+
+intezaar count chhota hai limit tab tak
+  count hai count milan 1
+bas itna hi
+
+yaad end hai abhi_time()
+yaad elapsed hai end doori start
+
+bolo "counted to:"
+bolo count
+
+bolo "time taken (seconds):"
+bolo elapsed
+
+agar elapsed chhota ya barabar hai 1 toh
+  baby bolo naa "native speed — roshni ki tarah 💫"
+warna
+  bolo "interpreter mode — still works great"
+bas itna hi
+
+love you baby byeee

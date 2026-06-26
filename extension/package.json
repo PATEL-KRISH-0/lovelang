@@ -1,0 +1,249 @@
+{
+  "name": "love-lang-tools",
+  "displayName": "Love Lang Tools",
+  "description": "Lovelang — a programming language with romantic, Hindi/Urdu, and natural-language syntax. Syntax highlighting, snippets, IntelliSense, run/compile commands, and a settings panel.",
+  "version": "1.0.0",
+  "publisher": "patelkrish",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PATEL-KRISH-0/lovelang"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "lovelang",
+    "love",
+    "hindi",
+    "urdu",
+    "romantic",
+    "desi",
+    "natural language",
+    "programming language",
+    "interpreter",
+    "compiler",
+    "arm64",
+    "syntax highlighting",
+    "snippets"
+  ],
+  "files": [
+    "extension.js",
+    "language-configuration.json",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "snippets/**",
+    "syntaxes/**"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "lovelang",
+        "aliases": [
+          "Lovelang",
+          "love"
+        ],
+        "extensions": [
+          ".love"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lovelang",
+        "scopeName": "source.lovelang",
+        "path": "./syntaxes/love.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lovelang",
+        "path": "./snippets/love.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "loveLanguage.runCurrentFile",
+        "title": "Lovelang: Run Current File",
+        "shortTitle": "Run"
+      },
+      {
+        "command": "loveLanguage.compileCurrentFile",
+        "title": "Lovelang: Compile Current File",
+        "shortTitle": "Compile"
+      },
+      {
+        "command": "loveLanguage.compileAndRunCurrentFile",
+        "title": "Lovelang: Compile & Run",
+        "shortTitle": "Compile & Run"
+      },
+      {
+        "command": "loveLanguage.runLastBinary",
+        "title": "Lovelang: Run Last Binary",
+        "shortTitle": "Run Binary"
+      },
+      {
+        "command": "loveLanguage.openSettingsPanel",
+        "title": "Lovelang: Settings",
+        "shortTitle": "Settings"
+      },
+      {
+        "command": "loveLanguage.openExtensionReadme",
+        "title": "Lovelang: Open README"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceExtname == .love",
+          "command": "loveLanguage.runCurrentFile",
+          "group": "navigation@20"
+        },
+        {
+          "when": "resourceExtname == .love",
+          "command": "loveLanguage.compileCurrentFile",
+          "group": "navigation@21"
+        },
+        {
+          "when": "resourceExtname == .love",
+          "command": "loveLanguage.compileAndRunCurrentFile",
+          "group": "navigation@22"
+        },
+        {
+          "when": "resourceExtname == .love",
+          "command": "loveLanguage.runLastBinary",
+          "group": "navigation@23"
+        },
+        {
+          "when": "resourceExtname == .love",
+          "command": "loveLanguage.openSettingsPanel",
+          "group": "navigation@24"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "loveLanguage.runCurrentFile",
+          "when": "true"
+        },
+        {
+          "command": "loveLanguage.compileCurrentFile",
+          "when": "true"
+        },
+        {
+          "command": "loveLanguage.compileAndRunCurrentFile",
+          "when": "true"
+        },
+        {
+          "command": "loveLanguage.runLastBinary",
+          "when": "true"
+        },
+        {
+          "command": "loveLanguage.openSettingsPanel",
+          "when": "true"
+        },
+        {
+          "command": "loveLanguage.openExtensionReadme",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Lovelang",
+      "properties": {
+        "lovelang.runUseScript": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use platform run script when available (run_love.sh/run_love.cmd)."
+        },
+        "lovelang.runScriptPath": {
+          "type": "string",
+          "default": "",
+          "description": "Override run script path. Empty means auto-detect by platform."
+        },
+        "lovelang.runBinaryPath": {
+          "type": "string",
+          "default": "./lovelang",
+          "description": "Binary path used when run script is disabled or unavailable."
+        },
+        "lovelang.runMode": {
+          "type": "string",
+          "default": "romantic",
+          "description": "Default value for --mode in run command."
+        },
+        "lovelang.runTokens": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include --tokens in run command."
+        },
+        "lovelang.runDebugLove": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include --debug-love in run command."
+        },
+        "lovelang.runExtraArgs": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional CLI arguments appended to run command."
+        },
+        "lovelang.runInNewTerminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run command in a new terminal each time."
+        },
+        "lovelang.suggestions.includeHumanPhrases": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include natural phrase snippets (for example: baby bolo na, sun na agar) in completion suggestions."
+        },
+        "lovelang.autoAssociateLoveFiles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically switch .love files to Lovelang language mode when opened."
+        },
+        "lovelang.forceDecorationHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Apply extension-driven fallback token coloring for Lovelang files when themes do not color custom scopes."
+        },
+        "lovelang.compileTarget": {
+          "type": "string",
+          "enum": ["host", "macos", "linux", "windows"],
+          "default": "host",
+          "description": "Cross-compilation target platform for the binary."
+        },
+        "lovelang.compileOutputPath": {
+          "type": "string",
+          "default": "",
+          "description": "Output path for the compiled binary. If empty, auto-derives from source name (build/<name>)."
+        },
+        "lovelang.compileRunAfter": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically run the compiled binary after a successful compile."
+        },
+        "lovelang.compileRunInNewTerminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open a new terminal each time a compile command is run."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node --check extension.js",
+    "package": "npx @vscode/vsce package --allow-missing-repository --skip-license"
+  }
+}

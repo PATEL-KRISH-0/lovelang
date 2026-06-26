@@ -1,0 +1,52 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 07 — Loops
+baby ignore karo  jabtak, intezaar — both mean "while" / "keep waiting"
+baby ignore karo  tab tak closes the loop header in natural style
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ intezaar (natural style) — "wait until"
+yaad i hai 1
+intezaar i chhota ya barabar hai 5 tab tak
+  bolo i
+  i hai i milan 1
+bas itna hi
+
+~~ jabtak (core style) — same semantics
+yaad j hai 10
+jabtak j bada hai 0 tab tak
+  baby bolo na j
+  j hai j doori 3
+bas itna hi
+
+~~ Count words in a sentence using a loop
+baby ignore karo  (simulating char count via manual digit loop)
+yaad count hai 0
+yaad limit hai 7
+intezaar count chhota hai limit tab tak
+  count hai count milan 1
+bas itna hi
+bolo "counted:"
+bolo count
+
+~~ Loop building a sum — word operators only
+yaad total hai 0
+yaad n hai 1
+intezaar n chhota ya barabar hai 10 tab tak
+  total hai total milan n
+  n hai n milan 1
+bas itna hi
+bolo "sum 1 to 10:"
+bolo total
+
+~~ Nested loops — multiplication table corner
+yaad row hai 1
+intezaar row chhota ya barabar hai 3 tab tak
+  yaad col hai 1
+  intezaar col chhota ya barabar hai 3 tab tak
+    bolo row milan " x " milan col milan " = " milan to_text(row intense col)
+    col hai col milan 1
+  bas itna hi
+  row hai row milan 1
+bas itna hi
+
+love you baby byeee

@@ -1,0 +1,116 @@
+Lovelang Attribution License v1.0
+Copyright (c) 2026 patel krish
+
+PREAMBLE
+
+This license grants broad freedom to use, modify, distribute, and build upon
+Lovelang, while requiring that credit is always given — whether in code,
+products, publications, or advertising. If Lovelang helped you create
+something, say so. That's all we ask.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GRANT OF RIGHTS
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of this software and associated documentation files
+(the "Software"), to:
+
+  1. USE the Software for any purpose, commercial or non-commercial.
+  2. COPY and redistribute verbatim copies of the Software.
+  3. MODIFY the Software and distribute modified versions.
+  4. SUBLICENSE under this same license.
+  5. SELL products and services that include or are built with the Software.
+  6. COMPILE, embed, and ship the Software in any form (binary, WASM, etc.).
+
+Subject to the conditions below.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONDITIONS
+
+1. ATTRIBUTION IN SOURCE AND BINARIES
+   All copies, modified or unmodified, source or binary, must retain:
+     a. This copyright notice.
+     b. This license text (or a URL linking to it).
+     c. A clear, visible credit: "Built with Lovelang by patel krish"
+        OR "Powered by Lovelang (github.com/PATEL-KRISH-0/lovelang)"
+
+   Acceptable placements include: README, NOTICE, about screen, CLI --version
+   output, package.json/pyproject.toml description, or similar.
+
+2. ATTRIBUTION IN MODIFIED VERSIONS
+   If you distribute a modified version of the Software (fork, patch, derived
+   language, compiler rewrite, etc.), you MUST:
+     a. Clearly state that your version is a modification of Lovelang.
+     b. State the nature of your changes (e.g., in a CHANGES file or header).
+     c. Retain attribution to the original: "Based on Lovelang by patel krish"
+        (github.com/PATEL-KRISH-0/lovelang).
+     d. NOT represent your modified version as the original Lovelang or claim
+        original authorship of the unmodified portions.
+
+3. ATTRIBUTION IN ADVERTISING AND PROMOTION
+   If you use Lovelang (or a derivative) in a product, service, course,
+   article, video, talk, social post, or any public-facing communication that
+   describes, promotes, or demonstrates that product, you MUST include a
+   clear, readable credit statement. Examples:
+
+     ✅  "Uses Lovelang — github.com/PATEL-KRISH-0/lovelang"
+     ✅  "Built with Lovelang by patel krish"
+     ✅  "Powered by Lovelang (MIT+Attribution, patel krish)"
+
+   This credit must be:
+     - Visible and legible (not hidden in tooltips, white-on-white, or <1pt).
+     - Present wherever the product or feature is described to end users.
+     - In all paid advertisements where Lovelang is a featured component.
+
+   You do NOT need attribution in:
+     - Internal tools never shown to external users.
+     - Personal hobby projects that are never published.
+
+4. PATENT GRANT
+   Each contributor grants you a perpetual, worldwide, royalty-free, patent
+   license to make, use, sell, import, and otherwise transfer the Software.
+
+5. NO TRADEMARK GRANT
+   This license does not grant permission to use the name "Lovelang", the
+   heart logo, or any associated trademarks for anything other than factual
+   attribution required by this license.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SUMMARY (not legally binding — see full text above)
+
+  ✅  Use freely, commercially or personally
+  ✅  Modify and redistribute
+  ✅  Sell products built on it
+  ⚠️  Give credit in your code/README/about
+  ⚠️  Give credit in ads and public promotion
+  ⚠️  Mark modified versions as modified
+  ❌  Cannot remove attribution
+  ❌  Cannot use the Lovelang name as your own brand
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUICK ATTRIBUTION TEMPLATE
+
+Add one of these to your README, NOTICE, or about screen:
+
+  Powered by Lovelang v1.0.0 — https://github.com/PATEL-KRISH-0/lovelang
+  Copyright (c) 2026 patel krish — Lovelang Attribution License v1.0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Lovelang is built to be shared. Use it freely, improve it, and build amazing things with it. We only ask that you keep the attribution so others can discover the project and the people who made it possible.

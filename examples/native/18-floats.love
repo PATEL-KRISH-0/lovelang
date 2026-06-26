@@ -1,0 +1,49 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 18 — Native Floats
+baby ignore karo  Float arithmetic — works in both interpreter and native
+baby ignore karo  Run natively: lovelang examples/native/18-floats.love --native --out ./build/floats
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad pi hai 3.14159
+yaad radius hai 7.0
+yaad area hai pi intense radius intense radius
+
+bolo "circle area (r=7):"
+bolo area
+
+~~ Basic float ops
+yaad a hai 10.5
+yaad b hai 3.2
+
+bolo "a milan b:"
+bolo a milan b
+
+bolo "a doori b:"
+bolo a doori b
+
+bolo "a intense b:"
+bolo a intense b
+
+bolo "a divide b:"
+bolo a divide b
+
+~~ Float comparisons
+agar a bada hai b toh
+  baby bolo naa "a bada hai b — haan sach hai"
+bas itna hi
+
+agar b chhota hai 5.0 toh
+  bolo "b is less than 5.0"
+bas itna hi
+
+~~ Float to text
+bolo "pi as text: " milan to_text(pi)
+
+~~ Mixed int and float
+yaad speed hai 100
+yaad time hai 2.5
+yaad distance hai to_text(speed) milan " x " milan to_text(time)
+bolo "distance formula:"
+bolo distance
+
+love you baby byeee

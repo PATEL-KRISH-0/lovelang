@@ -1,0 +1,67 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 12 — Lists
+baby ignore karo  Dynamic arrays with full CRUD operations
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Create a new list
+yaad feelings hai list_nayi()
+
+~~ Append items — list_daal = "put in the list"
+list_daal(feelings, "pyaar")
+list_daal(feelings, "intezaar")
+list_daal(feelings, "dard")
+list_daal(feelings, "khushi")
+list_daal(feelings, "yaad")
+
+bolo "all feelings:"
+bolo feelings
+
+~~ Length
+bolo "how many feelings:"
+bolo lambai(feelings)
+
+~~ Access by index (zero-based)
+baby bolo na "first feeling:"
+bolo list_lao(feelings, 0)
+bolo "last feeling:"
+bolo list_lao(feelings, lambai(feelings) doori 1)
+
+~~ Update at index
+list_set(feelings, 2, "sukoon")
+bolo "after healing (index 2 updated):"
+bolo list_lao(feelings, 2)
+
+~~ Pop the last item
+yaad popped hai list_nikaal(feelings)
+bolo "removed from end:"
+bolo popped
+bolo "remaining count:"
+bolo lambai(feelings)
+
+~~ Iterate over list manually
+bolo "all remaining feelings:"
+yaad idx hai 0
+intezaar idx chhota hai lambai(feelings) tab tak
+  baby bolo na list_lao(feelings, idx)
+  idx hai idx milan 1
+bas itna hi
+
+~~ List of numbers — math on items
+yaad nums hai list_nayi()
+list_daal(nums, 10)
+list_daal(nums, 20)
+list_daal(nums, 30)
+list_daal(nums, 40)
+list_daal(nums, 50)
+
+yaad total hai 0
+yaad i hai 0
+intezaar i chhota hai lambai(nums) tab tak
+  total hai total milan list_lao(nums, i)
+  i hai i milan 1
+bas itna hi
+
+bolo "sum of list:"
+bolo total
+
+love you baby byeee

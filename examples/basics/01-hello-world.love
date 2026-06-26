@@ -1,0 +1,18 @@
+baby ignore karo ═══════════════════════════════════════════════════════
+baby ignore karo  Example 01 — Hello World
+baby ignore karo  The classic first program, written in Lovelang style.
+baby ignore karo  Try running: lovelang examples/basics/01-hello-world.love
+baby ignore karo ═══════════════════════════════════════════════════════
+
+~~ A warm greeting in three languages of love
+
+baby bolo naa "hello, duniya 🌍"
+bolo "namaste, jahan"
+baby bolo na "tum aaye — dil khush hua 💌"
+
+~~ Show the version with a feeling
+
+yaad version hai "1.0.0"
+bolo "Lovelang " milan version milan " — code jo dil se bolta hai"
+
+love you baby byeee

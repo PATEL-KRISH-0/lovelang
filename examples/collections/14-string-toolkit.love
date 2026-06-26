@@ -1,0 +1,54 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 14 — String Toolkit
+baby ignore karo  lafz_* functions — lafz means "word" in Urdu
+baby ignore karo ════════════════════════════════════════════════════════
+
+yaad line hai "  Dil Se Likha Hai Yeh Khatt  "
+
+~~ Trim whitespace
+yaad trimmed hai lafz_trim(line)
+bolo "trimmed:"
+bolo trimmed
+
+~~ Upper and lower
+bolo "upper:"
+bolo lafz_upper(trimmed)
+bolo "lower:"
+bolo lafz_lower(trimmed)
+
+~~ Length — len and lambai both work
+bolo "length of trimmed:"
+bolo lambai(trimmed)
+bolo len(trimmed)
+
+~~ Contains — returns sach or jhooth
+agar lafz_contains(trimmed, "Dil") toh
+  baby bolo na "dil wali baat hai 💗"
+warna
+  bolo "dil nahi mila"
+bas itna hi
+
+~~ Replace
+yaad fixed hai lafz_replace(trimmed, "Khatt", "Shayari")
+bolo "after replace:"
+bolo fixed
+
+~~ Split and join
+yaad csv hai "laila,majnu,heer,ranjha"
+yaad parts hai lafz_split(csv, ",")
+bolo "split into parts:"
+bolo lambai(parts)
+bolo list_lao(parts, 0)
+bolo list_lao(parts, 3)
+
+yaad rejoined hai lafz_join(parts, " aur ")
+bolo "joined with aur:"
+bolo rejoined
+
+~~ Concatenation with milan
+yaad first hai "pyaar"
+yaad second hai "mohabbat"
+yaad full hai first milan " aur " milan second milan " — ek hi baat hai"
+baby bolo naa full
+
+love you baby byeee

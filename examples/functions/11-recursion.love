@@ -1,0 +1,45 @@
+baby ignore karo ════════════════════════════════════════════════════════
+baby ignore karo  Example 11 — Recursion
+baby ignore karo  Functions calling themselves — infinite feelings loop
+baby ignore karo ════════════════════════════════════════════════════════
+
+~~ Factorial — n! = n * (n-1) * ... * 1
+dhadkan factorial(n) {
+  agar n chhota ya barabar hai 1 toh
+    ehsaas 1
+  bas itna hi
+  ehsaas n intense factorial(n doori 1)
+}
+
+bolo "5! ="
+bolo factorial(5)
+bolo "10! ="
+bolo factorial(10)
+
+~~ Fibonacci — the golden ratio of love
+dhadkan fib(n) {
+  agar n chhota ya barabar hai 1 toh
+    ehsaas n
+  bas itna hi
+  ehsaas fib(n doori 1) milan fib(n doori 2)
+}
+
+bolo "fibonacci sequence (0 to 8):"
+yaad k hai 0
+intezaar k chhota ya barabar hai 8 tab tak
+  baby bolo na fib(k)
+  k hai k milan 1
+bas itna hi
+
+~~ Power function — recursion beats loops here
+dhadkan power(base, exp) {
+  agar exp barabar hai 0 toh
+    ehsaas 1
+  bas itna hi
+  ehsaas base intense power(base, exp doori 1)
+}
+
+bolo "2 to the power of 8:"
+bolo power(2, 8)
+
+love you baby byeee

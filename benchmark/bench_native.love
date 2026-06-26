@@ -1,0 +1,9 @@
+// benchmark/bench_native.love — sum loop 0..20,000,000 (native compile)
+yaad n hai 20000000
+yaad i hai 0
+yaad sum hai 0
+jabtak i chhota hai n tab tak
+  sum hai sum milan i
+  i hai i milan 1
+bas itna hi
+bolo sum
