@@ -204,6 +204,10 @@ function runOnce() {
 async function runProgram() {
     runBtn.disabled = true;
     try {
+        // Clear cached instance to force fresh WebAssembly instantiation.
+        // This resets all C static/global variables and memory to avoid corruption.
+        moduleInstance = null;
+        modulePromise = null;
         await ensureRuntimeLoaded();
         runOnce();
     } finally {
