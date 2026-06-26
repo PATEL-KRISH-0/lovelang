@@ -3858,15 +3858,26 @@ static int write_pe64(CG64 *g, const char *out, size_t entry_off) {
 
     /* Build PE header */
     BB64 hdr; b64_init(&hdr);
-    /* DOS stub */
+    /* DOS stub - exactly 64 bytes */
     b64_bytes(&hdr, "MZ", 2);
-    b64_u16le(&hdr, 0x90); b64_u16le(&hdr, 3); b64_u16le(&hdr, 0); b64_u16le(&hdr, 4);
-    b64_u16le(&hdr,0); b64_u16le(&hdr,0); b64_u16le(&hdr,0xFFFF); b64_u16le(&hdr,0);
-    b64_u16le(&hdr,0xB8); b64_u16le(&hdr,0); b64_u16le(&hdr,0); b64_u16le(&hdr,0);
-    b64_u16le(&hdr,0); b64_u16le(&hdr,0);
-    b64_zeros(&hdr, 20);
-    b64_u32le(&hdr, 0x40);
-    b64_zeros(&hdr, 64 - hdr.len);
+    b64_u16le(&hdr, 0x90);   /* e_cblp */
+    b64_u16le(&hdr, 3);      /* e_cp */
+    b64_u16le(&hdr, 0);      /* e_crlc */
+    b64_u16le(&hdr, 4);      /* e_cparhdr */
+    b64_u16le(&hdr, 0);      /* e_minalloc */
+    b64_u16le(&hdr, 0);      /* e_maxalloc */
+    b64_u16le(&hdr, 0xFFFF); /* e_ss */
+    b64_u16le(&hdr, 0);      /* e_sp */
+    b64_u16le(&hdr, 0xB8);   /* e_csum */
+    b64_u16le(&hdr, 0);      /* e_ip */
+    b64_u16le(&hdr, 0);      /* e_cs */
+    b64_u16le(&hdr, 0x40);   /* e_lfarlc */
+    b64_u16le(&hdr, 0);      /* e_ovno */
+    b64_zeros(&hdr, 8);      /* e_res[4] */
+    b64_u16le(&hdr, 0);      /* e_oemid */
+    b64_u16le(&hdr, 0);      /* e_oeminfo */
+    b64_zeros(&hdr, 20);     /* e_res2[10] */
+    b64_u32le(&hdr, 0x40);   /* e_lfanew = 0x40 (offset 60) */
 
     b64_bytes(&hdr, "PE\0\0", 4);
     /* COFF */

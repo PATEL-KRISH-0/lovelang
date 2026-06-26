@@ -1,6 +1,6 @@
 {
   "name": "lovelang-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Cross-platform CLI wrapper for the Lovelang programming language. Automatically downloads the correct native binary from GitHub releases.",
   "license": "MIT",
   "homepage": "https://github.com/PATEL-KRISH-0/lovelang",

@@ -3314,21 +3314,26 @@ static int write_pe(const uint8_t *code, size_t code_len,
     /* ── build PE header ─────────────────────────────────────────── */
     BB hdr; bb_init(&hdr);
 
-    /* DOS stub */
-    bb_bytes(&hdr,"MZ",2);
-    bb_u16le(&hdr,0x90);   /* e_cblp */
-    bb_u16le(&hdr,3);      /* e_cp */
-    bb_u16le(&hdr,0);      /* e_crlc */
-    bb_u16le(&hdr,4);      /* e_cparhdr */
-    bb_u16le(&hdr,0);bb_u16le(&hdr,0);bb_u16le(&hdr,0xFFFF);bb_u16le(&hdr,0);
-    bb_u16le(&hdr,0xB8);bb_u16le(&hdr,0);bb_u16le(&hdr,0);bb_u16le(&hdr,0);
-    /* e_lfanew = 0x40 */
-    bb_u16le(&hdr,0);  /* e_oemid */
-    bb_u16le(&hdr,0);  /* e_oeminfo */
-    bb_zeros(&hdr,20); /* e_res2 */
-    bb_u32le(&hdr,0x40);  /* e_lfanew = 64 */
-    /* DOS program (just "This program cannot be run in DOS mode.\r\r\n$" padding) */
-    bb_zeros(&hdr,64-hdr.len);   /* pad to 0x40 */
+    /* DOS stub - exactly 64 bytes */
+    bb_bytes(&hdr, "MZ", 2);
+    bb_u16le(&hdr, 0x90);   /* e_cblp */
+    bb_u16le(&hdr, 3);      /* e_cp */
+    bb_u16le(&hdr, 0);      /* e_crlc */
+    bb_u16le(&hdr, 4);      /* e_cparhdr */
+    bb_u16le(&hdr, 0);      /* e_minalloc */
+    bb_u16le(&hdr, 0);      /* e_maxalloc */
+    bb_u16le(&hdr, 0xFFFF); /* e_ss */
+    bb_u16le(&hdr, 0);      /* e_sp */
+    bb_u16le(&hdr, 0xB8);   /* e_csum */
+    bb_u16le(&hdr, 0);      /* e_ip */
+    bb_u16le(&hdr, 0);      /* e_cs */
+    bb_u16le(&hdr, 0x40);   /* e_lfarlc */
+    bb_u16le(&hdr, 0);      /* e_ovno */
+    bb_zeros(&hdr, 8);      /* e_res[4] */
+    bb_u16le(&hdr, 0);      /* e_oemid */
+    bb_u16le(&hdr, 0);      /* e_oeminfo */
+    bb_zeros(&hdr, 20);     /* e_res2[10] */
+    bb_u32le(&hdr, 0x40);   /* e_lfanew = 0x40 (offset 60) */
 
     /* PE signature */
     bb_bytes(&hdr,"PE\0\0",4);
